@@ -1,0 +1,251 @@
+/* AI_Flow — Chat Page. All classes prefixed aif-chat-page- */
+
+.aif-chat-page {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--hcr-bg-primary-color);
+}
+
+/* ── Back button — placed in the header burger grid area ─────────────── */
+
+.aif-chat-page__back-btn {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  color: var(--hcr-header-color);
+}
+
+/* ── Desktop back button (inside content, below header) ──────────────── */
+
+.aif-chat-page__back-btn-desktop {
+  display: none;
+}
+
+@media (min-width: 1027px) {
+  .aif-chat-page__back-btn-desktop {
+    display: flex;
+    align-self: flex-start;
+    margin-bottom: var(--hcr-spacing-2);
+  }
+}
+
+/* ── Page content ─────────────────────────────────────────────────────── */
+
+.aif-chat-page__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 100%;
+  max-width: 780px;
+  padding: var(--hcr-spacing-2);
+  gap: 6px;
+}
+
+.aif-chat-page__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: var(--hcr-spacing-half);
+  text-align: center;
+}
+
+.aif-chat-page__spark {
+  fill: var(--ai-dark-color, #8f008f);
+  color: var(--ai-dark-color, #8f008f);
+}
+
+.aif-chat-page__title {
+  margin: 0;
+  color: var(--hcr-heading-font-color);
+  font-family: var(--hcr-font-family-primary);
+  font-size: var(--hcr-font-size-h4);
+  font-weight: var(--hcr-font-weight-bold);
+  line-height: var(--hcr-line-height-h4);
+  text-align: center;
+}
+
+.aif-chat-page__subtitle {
+  margin: 0;
+  color: var(--hcr-content-primary-color);
+  font-family: var(--hcr-font-family-primary);
+  font-size: var(--hcr-font-size-primary);
+  font-weight: var(--hcr-font-weight-normal);
+  line-height: var(--hcr-line-height-primary);
+  text-align: center;
+}
+
+.aif-chat-page__disclaimer {
+  margin: 0;
+  color: var(--hcr-content-primary-color);
+  font-family: var(--hcr-font-family-primary);
+  font-size: var(--hcr-font-size-fineprint);
+  font-weight: var(--hcr-font-weight-normal);
+  line-height: var(--hcr-line-height-fineprint);
+  text-align: center;
+}
+
+/* ── Footer panel ─────────────────────────────────────────────────────── */
+
+.aif-chat-page__footer {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-self: center;
+  width: 100%;
+  max-width: 780px;
+  gap: 6px;
+  padding: var(--hcr-spacing-2) var(--hcr-spacing-2) var(--hcr-spacing-4);
+  background-color: var(--hcr-box-bg-color);
+}
+
+/* ── Input row (input + action button side by side) ───────────────────── */
+
+.aif-chat-page__input-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--hcr-spacing-1);
+}
+
+/* ── AI Input ─────────────────────────────────────────────────────────── */
+
+.aif-chat-page__input {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-height: var(--hcr-input-height-mobile);
+  overflow: hidden;
+  background-color: var(--hcr-box-bg-color);
+  border: 1px solid var(--hcr-line-primary-color);
+  border-radius: var(--hcr-border-radius-1);
+  color: var(--hcr-content-primary-color);
+}
+
+.aif-chat-page__input:focus-within {
+  box-shadow: 0 0 0 calc(var(--hcr-spacing-half) + 1px) var(--hcr-grayscale-0-color);
+  outline: 2px solid var(--hcr-focus-outline-color);
+  outline-offset: 1px;
+}
+
+.aif-chat-page__input-field {
+  flex: 1;
+  padding: calc(var(--hcr-spacing-2) - var(--hcr-spacing-half) - 1px) var(--hcr-spacing-2);
+  background: transparent;
+  border: 0;
+  color: var(--hcr-content-primary-color);
+  field-sizing: content;
+  font-family: inherit;
+  font-size: var(--hcr-font-size-primary);
+  font-weight: var(--hcr-font-weight-normal);
+  line-height: var(--hcr-line-height-primary);
+  resize: none;
+}
+
+/* Idle state: lock height to 2 lines on mobile so the animated placeholder never causes layout shifts */
+@media (max-width: 1026px) {
+  .aif-chat-page__input--idle .aif-chat-page__input-field {
+    min-height: calc(
+      2 * var(--hcr-line-height-primary) +
+      2 * (var(--hcr-spacing-2) - var(--hcr-spacing-half) - 1px)
+    );
+  }
+}
+
+.aif-chat-page__input-field:focus {
+  outline: none;
+}
+
+.aif-chat-page__input-field::placeholder {
+  color: var(--hcr-content-secondary-color);
+  font-style: italic;
+  opacity: 1;
+}
+
+/* ── Audio recording box ──────────────────────────────────────────────── */
+
+.aif-chat-page__audio-box {
+  display: flex;
+  align-items: center;
+  min-height: var(--hcr-input-height-mobile);
+  padding: var(--hcr-spacing-1);
+  gap: var(--hcr-spacing-2);
+  background-color: var(--hcr-highlight-color);
+  border: 1px solid var(--hcr-line-primary-color);
+  border-radius: var(--hcr-border-radius-1);
+}
+
+/* ── Waveform ─────────────────────────────────────────────────────────── */
+
+.aif-chat-page__waveform {
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 2px;
+  height: 26px;
+  overflow: hidden;
+}
+
+.aif-chat-page__waveform-bar {
+  flex-shrink: 0;
+  width: 2px;
+  background-color: var(--hcr-grayscale-100-color);
+  border-radius: 2px;
+  transition: height 80ms linear;
+}
+
+/* ── Filter tags row (horizontally scrollable) ────────────────────────── */
+
+.aif-chat-page__tags {
+  display: flex;
+  gap: var(--hcr-spacing-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+}
+
+.aif-chat-page__tags::-webkit-scrollbar {
+  display: none;
+}
+
+.aif-chat-page__tags [class*="hcr-tag"] {
+  font-weight: var(--hcr-font-weight-normal);
+}
+
+/* ── Desktop layout (≥1027px) ────────────────────────────────────────── */
+
+@media (min-width: 1027px) {
+  .aif-chat-page__footer {
+    padding: var(--hcr-spacing-2) var(--hcr-spacing-2) var(--hcr-spacing-4);
+    gap: 6px;
+  }
+
+  .aif-chat-page__tags {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+    white-space: normal;
+  }
+}
+
+/* ── Desktop layout (≥1027px) ────────────────────────────────────────── */
+
+@media (min-width: 1027px) {
+  /* Back button is a mobile-only affordance — hide it in the desktop header */
+  .aif-chat-page__back-btn {
+    display: none;
+  }
+}
+
+/* ── Tag icons — icon primary color ──────────────────────────────────── */
+
+.aif-chat-page__tag-icon {
+  fill: var(--hcr-icon-primary-color);
+  color: var(--hcr-icon-primary-color);
+}
