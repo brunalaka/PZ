@@ -1,9 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeWrapper } from '@flixbus/honeycomb-react';
-import { HomePage } from './AI_Flow/home-page';
-import { ChatPage } from './AI_Flow/chat-page';
-import { ResultsPage } from './AI_Flow/results-page';
 import { MyTripsPage } from './prototypes/customer-account/my-trips';
 import { CheckoutPage } from './prototypes/checkout/checkout-page';
 import { FlixbusHomeScreen } from './prototypes/flixbus-home/HomeScreen';
@@ -21,9 +18,6 @@ const App = () => (
   <ThemeWrapper theme="flix">
     <BrowserRouter>
       <Routes>
-        <Route path="/ai-flow/home" element={<HomePage />} />
-        <Route path="/ai-flow/chat" element={<ChatPage />} />
-        <Route path="/ai-flow/results" element={<ResultsPage />} />
         <Route path="/customer-account/my-trips" element={<MyTripsPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/flixbus-home" element={<FlixbusHomeScreen />} />
