@@ -1,0 +1,192 @@
+.td-page {
+  min-height: 100vh;
+  background-color: var(--hcr-bg-secondary-color);
+  display: flex;
+  flex-direction: column;
+  max-width: 428px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+
+.td-header {
+  background-color: var(--hcr-brand-primary-color) !important;
+}
+
+.td-header .flix-header-bar__content {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2);
+  padding: var(--hcr-spacing-2) var(--hcr-spacing-3);
+}
+
+.td-header__back {
+  color: var(--hcr-content-primary-color) !important;
+  padding: 0 !important;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+  font-size: var(--hcr-font-size-small);
+}
+
+.td-header__title {
+  flex: 1;
+  text-align: center;
+  color: var(--hcr-content-primary-color);
+}
+
+.td-header__spacer {
+  min-width: 44px;
+}
+
+/* ── Main layout ── */
+
+.td-main {
+  padding: var(--hcr-spacing-4) var(--hcr-spacing-3);
+  /* HeaderBar fixed is 48px tall */
+  padding-top: calc(48px + var(--hcr-spacing-4));
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-3);
+  flex: 1;
+}
+
+/* ── Cards ── */
+
+.td-card {
+  width: 100%;
+}
+
+/* ── Journey card ── */
+
+.td-journey-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--hcr-spacing-3);
+}
+
+.td-journey-date {
+  color: var(--hcr-content-secondary-color);
+}
+
+.td-connection {
+  margin-top: var(--hcr-spacing-1);
+}
+
+.td-connection-slot {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+  padding: var(--hcr-spacing-half) 0;
+}
+
+.td-connection-slot__icon {
+  color: var(--hcr-icon-primary-color);
+  flex-shrink: 0;
+}
+
+/* ── Trip details ── */
+
+.td-section-title {
+  margin-bottom: var(--hcr-spacing-3) !important;
+  color: var(--hcr-content-secondary-color);
+  font-weight: var(--hcr-font-weight-normal);
+  font-size: var(--hcr-font-size-small) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.td-detail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.td-detail-row {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2);
+  padding: var(--hcr-spacing-2) 0;
+  border-bottom: 1px solid var(--hcr-line-primary-color);
+}
+
+.td-detail-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.td-detail-row:first-child {
+  padding-top: 0;
+}
+
+.td-detail-icon {
+  color: var(--hcr-icon-primary-color);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 24px;
+}
+
+.td-detail-label {
+  flex: 1;
+  color: var(--hcr-content-secondary-color);
+}
+
+.td-detail-value {
+  color: var(--hcr-content-primary-color);
+  font-weight: var(--hcr-font-weight-bold) !important;
+}
+
+/* ── QR card ── */
+
+.td-qr-card {
+  text-align: center;
+}
+
+.td-qr-title {
+  margin-bottom: var(--hcr-spacing-1) !important;
+}
+
+.td-qr-subtitle {
+  display: block;
+  color: var(--hcr-content-secondary-color);
+  margin-bottom: var(--hcr-spacing-3);
+}
+
+.td-qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: var(--hcr-spacing-2) 0;
+}
+
+.td-qr-frame {
+  display: inline-block;
+  border: 2px solid var(--hcr-line-primary-color);
+  border-radius: var(--hcr-primary-border-radius);
+  padding: var(--hcr-spacing-2);
+  background: white;
+}
+
+.td-qr-svg {
+  display: block;
+}
+
+.td-qr-route {
+  display: block;
+  color: var(--hcr-content-secondary-color);
+  margin-top: var(--hcr-spacing-2);
+}
+
+/* ── Action buttons ── */
+
+.td-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2);
+  padding-bottom: var(--hcr-spacing-6);
+}

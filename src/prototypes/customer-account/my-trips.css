@@ -1,0 +1,145 @@
+.ca-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--hcr-bg-primary-color);
+}
+
+.ca-main {
+  flex: 1;
+  padding: var(--hcr-spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-4);
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ca-page-title {
+  text-align: center;
+}
+
+.ca-find-booking-btn {
+  align-self: flex-start;
+}
+
+/* Trip card */
+.ca-trip-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2);
+}
+
+.ca-trip-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-half);
+}
+
+.ca-trip-card__destination {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+}
+
+.ca-trip-card__booking-number {
+  color: var(--hcr-content-secondary-color);
+}
+
+/* Date and tag stacked vertically */
+.ca-trip-card__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--hcr-spacing-1);
+}
+
+.ca-trip-card__connection {
+  margin: var(--hcr-spacing-1) 0;
+}
+
+/* Connection component has 12px gap between items by default; design shows no gap */
+.ca-trip-card__connection [class*="connection__item-"]:not(:first-child) {
+  margin-top: 0;
+}
+
+.ca-trip-card__transfer {
+  color: var(--hcr-content-secondary-color);
+}
+
+.ca-trip-card__cta {
+  margin-top: var(--hcr-spacing-1);
+}
+
+/* FlixBus brand tag — light green */
+.ca-flixbus-tag {
+  --hcr-tag-background-color: #e5f9c0;
+  --hcr-tag-border-color: #e5f9c0;
+  --hcr-tag-text-color: #353535;
+}
+
+/* Manage my booking toggle — compact, centered */
+.ca-mmb-toggle {
+  align-self: center;
+  gap: var(--hcr-spacing-1);
+}
+
+/* MMB options row */
+.ca-mmb-options {
+  display: flex;
+  gap: var(--hcr-spacing-2);
+  overflow-x: auto;
+  padding-bottom: var(--hcr-spacing-1);
+  scrollbar-width: thin;
+  scrollbar-color: var(--hcr-grayscale-30-color) transparent;
+}
+
+.ca-mmb-options::-webkit-scrollbar {
+  height: 4px;
+}
+
+.ca-mmb-options::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ca-mmb-options::-webkit-scrollbar-thumb {
+  background-color: var(--hcr-grayscale-30-color);
+  border-radius: 2px;
+}
+
+.ca-mmb-options__btn {
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+.ca-mmb-cancel-icon {
+  color: var(--hcr-danger-color);
+}
+
+/* Footer */
+.ca-footer {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--hcr-bg-secondary-color);
+}
+
+.ca-footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--hcr-spacing-1);
+  padding: var(--hcr-spacing-2) var(--hcr-spacing-2) var(--hcr-spacing-3);
+}
+
+.ca-footer__link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--hcr-spacing-2);
+  justify-content: flex-end;
+}
+
+.ca-footer__copyright {
+  color: var(--hcr-content-secondary-color);
+}

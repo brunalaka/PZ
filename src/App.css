@@ -1,0 +1,123 @@
+:root {
+  --hcr-page-max-width: 1170px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* TripCard standalone page */
+.trip-card-page {
+  background-color: var(--hcr-bg-secondary-color);
+  min-height: 100vh;
+  padding: var(--hcr-spacing-8) var(--hcr-spacing-4);
+}
+
+/* TripCard component */
+.trip-card {
+  max-width: 640px;
+}
+
+.trip-card__header {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--hcr-spacing-2);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.trip-card__route {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1);
+  min-width: 0;
+}
+
+.trip-card__route-line {
+  align-items: center;
+  display: flex;
+  gap: var(--hcr-spacing-1);
+}
+
+.trip-card__route-arrow {
+  color: var(--hcr-content-primary-color);
+  flex-shrink: 0;
+}
+
+.trip-card__booking-number {
+  color: var(--hcr-content-secondary-color);
+  margin: 0;
+}
+
+.trip-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1);
+  margin-top: var(--hcr-spacing-2);
+  width: 100%;
+}
+
+.trip-card__brand-tags {
+  margin-top: var(--hcr-spacing-half);
+}
+
+/* Trip card action row (expanded "Manage my booking" panel) */
+.trip-card__actions {
+  display: flex;
+  gap: var(--hcr-spacing-2);
+  margin-top: var(--hcr-spacing-2);
+  overflow-x: auto;
+  width: 100%;
+}
+
+.trip-card__actions > * {
+  flex-shrink: 0;
+}
+
+/* Responsive button visibility — threshold matches Honeycomb's $breakpoint-md (768px) */
+.trip-card__cta--mobile {
+  margin-top: var(--hcr-spacing-2);
+}
+
+@media (min-width: 768px) {
+  .trip-card__cta--mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .trip-card__cta--desktop {
+    display: none;
+  }
+}
+
+/* Collapse spacing between all connection items and style the transfer row */
+.trip-card__connection-item.trip-card__connection-item {
+  margin-top: 0;
+}
+
+.trip-card__transfer-label {
+  color: var(--hcr-content-secondary-color);
+  font-size: var(--hcr-font-size-small);
+  line-height: var(--hcr-line-height-small);
+}
+
+.trip-card__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--hcr-spacing-2);
+  width: 100%;
+}
+
+.new-item-date-calendar {
+  position: absolute;
+  width: 300px;
+  margin-top: var(--hcr-spacing-2);
+}
+
+.main-wrapper {
+  margin-top: var(--hcr-spacing-4);
+}

@@ -1,0 +1,681 @@
+/* ── Panel layout ─────────────────────────────────────────────────────────── */
+.sm-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Mobile: full-screen bottom sheet */
+@media (max-width: 767px) {
+  .sm-panel [class^="hcr-panel__body"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* Desktop: center within mobile frame, full height, instant show/hide */
+@media (min-width: 768px) {
+  .sm-panel [class^="hcr-panel__body"] {
+    left: calc((100vw - min(100vw, 375px)) / 2) !important;
+    right: auto !important;
+    width: min(100vw, 375px) !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* Explicit white background on footer prevents the dark overlay from showing
+   through any sub-pixel rendering gap between content and footer on iOS */
+.sm-panel [class^="hcr-panel__footer"] {
+  background-color: var(--hcr-bg-primary-color, white);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.sm-header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+  width: 100%;
+}
+
+.sm-header-text {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.sm-header-route {
+  display: block;
+  font-weight: 400;
+  color: var(--hcr-grayscale-70-color, #646464);
+}
+
+.sm-back-btn,
+.sm-close-btn {
+  flex-shrink: 0;
+}
+
+/* ── Content scroll area ──────────────────────────────────────────────────── */
+.sm-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1, 6px);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--hcr-spacing-2, 12px) 0 var(--hcr-spacing-4, 24px);
+}
+
+/* ── Deck nav ─────────────────────────────────────────────────────────────── */
+.sm-deck-nav {
+  margin: 0 var(--hcr-spacing-4, 24px);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Legend ───────────────────────────────────────────────────────────────── */
+.sm-legend {
+  display: flex;
+  align-items: center;
+  padding: var(--hcr-spacing-1, 6px) var(--hcr-spacing-4, 24px);
+  border: none;
+  border-bottom: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  flex-shrink: 0;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.sm-legend:hover {
+  background: var(--hcr-bg-secondary-color, #f7f7f7);
+}
+
+.sm-legend-items {
+  flex: 1;
+  display: flex;
+  gap: var(--hcr-spacing-3, 18px);
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sm-legend-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1, 6px);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sm-legend-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.sm-legend-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sm-legend-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.sm-legend-name {
+  font-size: var(--hcr-font-size-primary, 1rem);
+  line-height: var(--hcr-line-height-primary, 1.5rem);
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+}
+
+.sm-legend-price {
+  font-size: var(--hcr-font-size-small, .875rem);
+  line-height: var(--hcr-line-height-small, 1.125rem);
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+}
+
+/* ── Seatmap canvas ───────────────────────────────────────────────────────── */
+.sm-canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--hcr-spacing-4, 24px);
+  flex-shrink: 0;
+}
+
+.sm-canvas {
+  position: relative;
+  width: 304px; /* Figma 360px canvas × 0.844 scale factor */
+  flex-shrink: 0;
+}
+
+/* Bus outline — z-index keeps it on top of windshield which would otherwise paint over it */
+.sm-bus-outline {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 28px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Bus chrome images */
+.sm-bus-windshield {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.sm-bus-windshield img {
+  width: 100%;
+  display: block;
+}
+
+.sm-bus-driver {
+  position: absolute;
+  pointer-events: none;
+}
+
+.sm-bus-driver img {
+  width: 100%;
+  display: block;
+}
+
+.sm-bus-door {
+  position: absolute;
+  pointer-events: none;
+}
+
+.sm-bus-door img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Seat ─────────────────────────────────────────────────────────────────── */
+.sm-seat {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.sm-seat:focus-visible {
+  outline: 2px solid var(--hcr-brand-primary-color, #97d700);
+  outline-offset: 2px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.sm-seat-inner {
+  position: absolute;
+  inset: 4.69%;
+  border-radius: 12px 12px 4px 4px;
+  background: var(--hcr-bg-primary-color, white);
+}
+
+/* The seat outline SVG */
+.sm-seat-outline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 49px;
+}
+
+.sm-seat-outline img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Category icon overlay (star/table) */
+.sm-seat-icon {
+  position: absolute;
+  top: 7px;
+  left: 14px;
+  right: 14px;
+  bottom: 22px;
+}
+
+.sm-seat-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Selected: full image replacement */
+.sm-seat--selected .sm-seat-inner,
+.sm-seat--selected .sm-seat-outline,
+.sm-seat--selected .sm-seat-icon {
+  display: none;
+}
+
+.sm-seat--selected .sm-seat-state-img {
+  display: block;
+}
+
+/* Unavailable: full image replacement */
+.sm-seat--unavailable .sm-seat-inner,
+.sm-seat--unavailable .sm-seat-outline,
+.sm-seat--unavailable .sm-seat-icon {
+  display: none;
+}
+
+.sm-seat--unavailable .sm-seat-state-img {
+  display: block;
+}
+
+/* State image (selected / unavailable) */
+.sm-seat-state-img {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Rotated seat (facing backward) */
+.sm-seat--reversed .sm-seat-inner {
+  transform: rotate(180deg);
+}
+
+.sm-seat--reversed .sm-seat-outline {
+  transform: rotate(180deg);
+  top: auto;
+  bottom: 0;
+}
+
+/* Hover state: tint available seat */
+.sm-seat:not(.sm-seat--selected):not(.sm-seat--unavailable):hover .sm-seat-inner,
+.sm-seat:not(.sm-seat--selected):not(.sm-seat--unavailable):focus-visible .sm-seat-inner {
+  background: var(--hcr-line-secondary-color, #e1e1e1);
+}
+
+/* ── Seat tooltip ─────────────────────────────────────────────────────────── */
+.sm-seat-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 191px;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.sm-seat:not(.sm-seat--selected):not(.sm-seat--unavailable):hover .sm-seat-tooltip {
+  opacity: 1;
+}
+
+/* Keep tooltip inside canvas for edge columns */
+.sm-seat--left-edge .sm-seat-tooltip {
+  left: 0;
+  transform: none;
+}
+
+.sm-seat--left-edge .sm-tooltip-body::after {
+  left: 27px; /* align caret with seat center (seat is 54px, center is 27px) */
+  transform: none;
+}
+
+.sm-seat--right-edge .sm-seat-tooltip {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.sm-seat--right-edge .sm-tooltip-body::after {
+  left: auto;
+  right: 27px;
+  transform: none;
+}
+
+.sm-tooltip-body {
+  background: var(--hcr-bg-primary-color, white);
+  border-radius: 6px;
+  padding: var(--hcr-spacing-1, 6px);
+  box-shadow:
+    0px 6px 12px rgba(0, 0, 0, 0.06),
+    0px 3px 18px rgba(0, 0, 0, 0.06),
+    0px 3px 6px rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+.sm-tooltip-body::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--hcr-bg-primary-color, white);
+}
+
+.sm-tooltip-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sm-tooltip-nr {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  background: var(--hcr-line-primary-color, #c8c8c8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hcr-content-primary-color, #353535);
+  flex-shrink: 0;
+  overflow: hidden;
+  text-align: center;
+  line-height: 1;
+}
+
+.sm-tooltip-nr--premium {
+  background: var(--hcr-content-primary-color, #353535);
+  color: var(--hcr-bg-secondary-color, #f7f7f7);
+}
+
+.sm-tooltip-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.sm-tooltip-type {
+  flex: 1;
+  font-size: var(--hcr-font-size-primary, 1rem);
+  font-weight: 700;
+  line-height: var(--hcr-line-height-primary, 1.5rem);
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sm-tooltip-price {
+  font-size: var(--hcr-font-size-primary, 1rem);
+  font-weight: 700;
+  line-height: var(--hcr-line-height-primary, 1.5rem);
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+}
+
+.sm-tooltip-description {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: var(--hcr-line-height-small, 1.125rem);
+  font-weight: 400;
+  color: var(--hcr-content-secondary-color, #646464);
+}
+
+/* ── Row number label ────────────────────────────────────────────────────── */
+.sm-row-label {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--hcr-font-size-fineprint, .75rem);
+  font-weight: 700;
+  color: var(--hcr-content-primary-color, #353535);
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ── Premium Zone badge ───────────────────────────────────────────────────── */
+.sm-premium-badge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.sm-pz-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--hcr-spacing-half, 3px) !important;
+  background-color: var(--hcr-content-primary-color, #353535) !important;
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8) !important;
+  border-radius: 30px !important;
+  padding: var(--hcr-spacing-half, 3px) var(--hcr-spacing-2, 12px) !important;
+  color: #f7f7f7 !important;
+  font-size: var(--hcr-font-size-primary, 1rem) !important;
+  font-weight: 500 !important;
+  line-height: var(--hcr-line-height-primary, 1.5rem) !important;
+  white-space: nowrap !important;
+}
+
+.sm-pz-pill-icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Description line below the badge, inside the canvas */
+.sm-premium-desc {
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: var(--hcr-font-size-small, .875rem);
+  line-height: var(--hcr-line-height-small, 1.125rem);
+  font-weight: 400;
+  color: var(--hcr-content-secondary-color, #646464);
+  text-align: center;
+  pointer-events: none;
+  z-index: 3;
+  margin: 0;
+}
+
+/* ── Premium Zone divider ─────────────────────────────────────────────────── */
+.sm-premium-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--hcr-content-primary-color, #353535);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Special elements ─────────────────────────────────────────────────────── */
+.sm-toilet,
+.sm-stairs {
+  position: absolute;
+  width: 108px; /* 2 × 54px seat size */
+}
+
+.sm-toilet {
+  border: 2px solid var(--hcr-line-secondary-color, #e1e1e1);
+  border-radius: 6px;
+  background: var(--hcr-bg-secondary-color, #f7f7f7);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sm-toilet img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.sm-stairs {
+  background: transparent;
+  overflow: hidden;
+}
+
+.sm-stairs img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+.sm-footer-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+  width: 100%;
+}
+
+.sm-footer-summary {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.sm-footer-count {
+  font-size: var(--hcr-font-size-primary, 1rem);
+  line-height: var(--hcr-line-height-primary, 1.5rem);
+  color: var(--hcr-content-primary-color, #353535);
+}
+
+.sm-footer-price {
+  font-size: var(--hcr-font-size-primary, 1rem);
+  line-height: var(--hcr-line-height-primary, 1.5rem);
+  font-weight: 700;
+  color: var(--hcr-content-primary-color, #353535);
+}
+
+.sm-confirm-btn {
+  flex-shrink: 0;
+  min-width: 142px;
+}
+
+/* ── Legend detail panel ──────────────────────────────────────────────────── */
+.sm-legend-detail-panel [class^="hcr-panel__body"] {
+  left: calc((100vw - min(100vw, 375px)) / 2) !important;
+  right: auto !important;
+  width: min(100vw, 375px) !important;
+  max-width: 100vw !important;
+  max-height: 85vh !important;
+  border-radius: var(--hcr-spacing-2, 12px) var(--hcr-spacing-2, 12px) 0 0 !important;
+}
+
+.sm-legend-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sm-legend-detail-content {
+  overflow-y: auto;
+  padding: 0 !important;
+}
+
+/* ── Seat category list + cards ───────────────────────────────────────────── */
+.sm-cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+  padding: var(--hcr-spacing-4, 24px);
+}
+
+.sm-cat-card {
+  display: flex;
+  height: 132px;
+  border-radius: var(--hcr-spacing-1, 6px);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  overflow: hidden;
+}
+
+.sm-cat-photo-wrap {
+  width: 142px;
+  height: 132px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.sm-cat-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sm-cat-body {
+  flex: 1;
+  height: 132px;
+  min-width: 0;
+  background: var(--hcr-bg-primary-color, white);
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1, 6px);
+  padding: var(--hcr-spacing-2, 12px) var(--hcr-spacing-1, 6px) var(--hcr-spacing-2, 12px) var(--hcr-spacing-2, 12px);
+}
+
+.sm-cat-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-half, 3px);
+}
+
+.sm-cat-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+.sm-cat-name {
+  flex: 1;
+  font-size: var(--hcr-font-size-primary, 1rem);
+  font-weight: 700;
+  line-height: var(--hcr-line-height-primary, 1.5rem);
+  color: var(--hcr-content-primary-color, #353535);
+  min-width: 0;
+}
+
+.sm-cat-price {
+  font-size: var(--hcr-font-size-primary, 1rem);
+  font-weight: 700;
+  line-height: var(--hcr-line-height-primary, 1.5rem);
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+}
+
+.sm-cat-desc {
+  margin: 0;
+  font-size: var(--hcr-font-size-small, .875rem);
+  line-height: var(--hcr-line-height-small, 1.125rem);
+  color: var(--hcr-content-primary-color, #353535);
+}

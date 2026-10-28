@@ -1,0 +1,942 @@
+/* ===== Checkout Exploration — Base ===== */
+
+.cxb-page {
+  background-image: var(--hcr-hover-layer-color);
+  min-height: 100vh;
+}
+
+/* ---- Header ---- */
+
+.cxb-header {
+  background-color: var(--hcr-brand-primary-color, #73d700);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 60px green bar */
+.cxb-header-bar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--hcr-spacing-2, 12px);
+  position: relative;
+}
+
+.cxb-header-back {
+  color: var(--hcr-content-primary-color, #353535);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.cxb-header-back svg,
+.cxb-header-back svg path {
+  fill: var(--hcr-content-primary-color, #353535);
+}
+
+/* Mobile: logo centered absolutely */
+.cxb-header-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+}
+
+.cxb-header-timer {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 3px;
+  z-index: 1;
+}
+
+.cxb-timer-text {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+  padding-right: 4px;
+}
+
+/* Desktop: logo left, hide mobile-only elements */
+@media (min-width: 768px) {
+  .cxb-header-back,
+  .cxb-header-timer {
+    display: none;
+  }
+
+  .cxb-header-logo {
+    position: static;
+    transform: none;
+  }
+}
+
+/* ---- Mobile trip summary card (green extension) ---- */
+
+.cxb-header-trip {
+  background-color: var(--hcr-brand-primary-color, #73d700);
+  padding: 0 var(--hcr-spacing-2, 12px) var(--hcr-spacing-2, 12px);
+}
+
+.cxb-header-trip-card {
+  background: var(--hcr-box-bg-color, #fff);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px;
+  padding: 3px var(--hcr-spacing-2, 12px);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cxb-header-trip-route {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1, 6px);
+  overflow: hidden;
+}
+
+.cxb-header-trip-city {
+  flex: 1;
+  min-width: 0;
+  font-size: 1rem;
+  line-height: 24px;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cxb-header-trip-arrow {
+  flex-shrink: 0;
+  color: var(--hcr-content-primary-color, #353535);
+}
+
+.cxb-header-trip-meta {
+  font-size: 1rem;
+  line-height: 24px;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  margin: 0;
+}
+
+/* Hidden on desktop — trip info lives in sidebar */
+@media (min-width: 768px) {
+  .cxb-header-trip {
+    display: none;
+  }
+}
+
+/* ---- Progress bar ---- */
+
+.cxb-progress-bar {
+  height: 5px;
+  background: var(--hcr-line-primary-color, #c8c8c8);
+  width: 100%;
+  position: sticky;
+  top: 60px;
+  z-index: 99;
+}
+
+.cxb-progress-fill {
+  height: 100%;
+  background: var(--hcr-ui-primary-light-color, #5cc500);
+  transition: width 0.08s linear;
+}
+
+@media (min-width: 768px) {
+  .cxb-progress-bar {
+    display: none;
+  }
+}
+
+/* ---- Layout ---- */
+
+.cxb-layout {
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: var(--hcr-spacing-2, 12px) 0;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+@media (min-width: 768px) {
+  .cxb-layout {
+    flex-direction: row;
+    align-items: stretch;
+    padding: var(--hcr-spacing-4, 24px) var(--hcr-spacing-4, 24px);
+    gap: var(--hcr-spacing-4, 24px);
+  }
+}
+
+/* ---- Main (steps) ---- */
+
+.cxb-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---- Sidebar ---- */
+
+.cxb-sidebar {
+  display: none;
+  width: 380px;
+  flex-shrink: 0;
+}
+
+.cxb-sidebar-sticky {
+  position: sticky;
+  top: var(--hcr-spacing-3, 18px);
+}
+
+@media (min-width: 768px) {
+  .cxb-sidebar-sticky {
+    top: calc(60px + var(--hcr-spacing-3, 18px));
+  }
+}
+
+@media (min-width: 768px) {
+  .cxb-sidebar {
+    display: block;
+  }
+
+  .cxb-order-mobile {
+    display: none;
+  }
+}
+
+/* ---- Step cards ---- */
+
+.cxb-card {
+  background-color: var(--hcr-box-bg-color, #fff);
+  border-top: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-bottom: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  padding: var(--hcr-spacing-3, 18px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-4, 24px);
+}
+
+@media (min-width: 768px) {
+  .cxb-card {
+    border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+    border-radius: 8px;
+  }
+}
+
+/* ---- Step header ---- */
+
+.cxb-step-header {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.cxb-step-badge {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  background-color: var(--hcr-brand-primary-color, #73d700);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+/* ---- Passengers ---- */
+
+.cxb-passengers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-4, 24px);
+}
+
+.cxb-passenger-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.cxb-passenger-label {
+  font-weight: 700 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ---- Seat options ---- */
+
+.cxb-seat-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.cxb-seat-option {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-3, 18px);
+  padding: var(--hcr-spacing-2, 12px);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 8px;
+  background: var(--hcr-box-bg-color, #fff);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: border-color 0.15s;
+}
+
+.cxb-seat-option:hover {
+  background-image: var(--hcr-hover-layer-color);
+}
+
+.cxb-seat-thumbnail {
+  width: 72px;
+  height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.cxb-seat-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cxb-seat-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.cxb-seat-price {
+  color: var(--hcr-content-secondary-color, #646464) !important;
+}
+
+.cxb-seat-chevron {
+  flex-shrink: 0;
+  color: var(--hcr-content-secondary-color, #646464);
+}
+
+/* ---- Extras / Luggage ---- */
+
+.cxb-extras {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Connected card: all three rows share one grouped card with partial borders */
+
+.cxb-luggage-row {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+  padding: var(--hcr-spacing-2, 12px);
+  background: var(--hcr-box-bg-color, #fff);
+  border-left: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-right: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+}
+
+.cxb-luggage-row--included {
+  border-top: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px 6px 0 0;
+}
+
+/* Hover on interactive rows (rows with quantity controls) */
+.cxb-luggage-row--middle:hover,
+.cxb-luggage-row--last:hover {
+  background-image: var(--hcr-hover-layer-color);
+}
+
+/* Rows with controls use 6px vertical padding on mobile, 12px on desktop */
+.cxb-luggage-row--middle,
+.cxb-luggage-row--last {
+  padding-top: var(--hcr-spacing-1, 6px);
+  padding-bottom: var(--hcr-spacing-1, 6px);
+}
+
+@media (min-width: 1024px) {
+  .cxb-luggage-row--middle,
+  .cxb-luggage-row--last {
+    padding-top: var(--hcr-spacing-2, 12px);
+    padding-bottom: var(--hcr-spacing-2, 12px);
+  }
+}
+
+/* .cxb-luggage-row--middle inherits only left+right borders from .cxb-luggage-row */
+
+.cxb-luggage-row--last {
+  border-bottom: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 0 0 6px 6px;
+}
+
+.cxb-luggage-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Body wrapper: stacked on mobile, row on desktop */
+.cxb-luggage-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+@media (min-width: 1024px) {
+  .cxb-luggage-body {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--hcr-spacing-2, 12px);
+  }
+}
+
+.cxb-luggage-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.cxb-luggage-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  margin: 0;
+}
+
+.cxb-luggage-detail {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--hcr-content-secondary-color, #646464);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  margin: 0;
+}
+
+.cxb-luggage-detail-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cxb-luggage-info-icon {
+  color: var(--hcr-content-secondary-color, #646464);
+  flex-shrink: 0;
+}
+
+.cxb-luggage-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+/* On mobile price stretches so qty stays right-aligned */
+.cxb-luggage-price {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .cxb-luggage-controls {
+    flex-shrink: 0;
+  }
+  .cxb-luggage-price {
+    flex: none;
+  }
+}
+
+/* Hide Quantity label text visually — label stays in DOM for accessibility */
+.cxb-luggage-controls [class*="hcr-quantity__label"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ---- Contact ---- */
+
+.cxb-contact-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-3, 18px);
+}
+
+/* ---- Payment ---- */
+
+.cxb-payment-fieldset {
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.cxb-payment-radio {
+  padding: var(--hcr-spacing-3, 18px) var(--hcr-spacing-2, 12px);
+  margin-bottom: 0 !important;
+}
+
+.cxb-payment-radio--selected {
+  background-image: var(--hcr-hover-layer-color);
+}
+
+.cxb-payment-radio:hover {
+  background-image: var(--hcr-hover-layer-color);
+}
+
+.cxb-payment-radio [class*="hcr-radio__label"]:hover,
+.cxb-payment-radio--selected [class*="hcr-radio__label"]:hover {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.cxb-payment-label {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.cxb-payment-logo {
+  height: 24px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.cxb-card-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+  padding: var(--hcr-spacing-2, 12px) var(--hcr-spacing-3, 18px) var(--hcr-spacing-3, 18px);
+}
+
+.cxb-card-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+/* ---- Billing address button ---- */
+
+.cxb-billing-icon {
+  color: var(--hcr-content-secondary-color, #646464);
+}
+
+.cxb-billing-btn {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--hcr-spacing-1, 6px);
+  padding: var(--hcr-spacing-2, 12px) 0;
+  font-weight: 700;
+  width: 100%;
+}
+
+/* ---- Booking block wrapper ---- */
+
+.cxb-booking-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+/* ---- Order summary card ---- */
+
+.cxb-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.cxb-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.cxb-summary-timer {
+  display: none;
+  align-items: center;
+  gap: var(--hcr-spacing-1, 6px);
+  background: var(--hcr-box-bg-color, #fff);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px;
+  padding: var(--hcr-spacing-2, 12px);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .cxb-summary-timer {
+    display: flex;
+  }
+}
+
+/* ---- Price card (separate bordered card inside summary) ---- */
+
+.cxb-price-card {
+  background-color: var(--hcr-box-bg-color, #fff);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px;
+  padding: var(--hcr-spacing-2, 12px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+/* ---- Trip sub-card ---- */
+
+.cxb-trip-card {
+  background-color: var(--hcr-box-bg-color, #fff);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px;
+  padding: var(--hcr-spacing-2, 12px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+.cxb-trip-header {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+}
+
+.cxb-trip-header-left {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.cxb-trip-date {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 24px;
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  margin: 0;
+}
+
+.cxb-trip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+.cxb-brand-tag {
+  background-color: var(--hcr-highlight-color, #e5f9c0) !important;
+  border-color: var(--hcr-highlight-color, #e5f9c0) !important;
+  color: var(--hcr-content-primary-color, #353535) !important;
+}
+
+.cxb-bus-illustration {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cxb-stop-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cxb-stop-icon {
+  color: var(--hcr-content-secondary-color, #646464);
+  flex-shrink: 0;
+}
+
+.cxb-direct-trip {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 15px;
+  color: var(--hcr-success-dark-color, #136b00);
+  text-transform: uppercase;
+  margin: 0;
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+/* ---- Price section ---- */
+
+.cxb-price-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+.cxb-price-section-label {
+  font-weight: 700 !important;
+  color: var(--hcr-content-secondary-color, #646464) !important;
+}
+
+.cxb-price-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+.cxb-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.cxb-price-item-label {
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--hcr-content-secondary-color, #646464);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  margin: 0;
+}
+
+.cxb-price-value {
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.cxb-price-service-text {
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.cxb-service-fee-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1, 6px);
+}
+
+.cxb-info-icon {
+  color: var(--hcr-content-secondary-color, #646464);
+  flex-shrink: 0;
+}
+
+.cxb-total-row {
+  padding: 2px 0;
+}
+
+.cxb-total-label {
+  font-size: 1.3125rem;
+  line-height: 27px;
+  font-weight: 700;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.cxb-total-vat {
+  font-weight: 400;
+}
+
+.cxb-total-amount {
+  font-size: 1.3125rem;
+  line-height: 27px;
+  font-weight: 700;
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+}
+
+/* ---- Voucher accordion ---- */
+
+.cxb-voucher-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cxb-voucher-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1, 6px);
+  padding: var(--hcr-spacing-2, 12px) var(--hcr-spacing-2, 12px);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.cxb-voucher-icon {
+  color: var(--hcr-content-secondary-color, #646464);
+}
+
+.cxb-voucher-toggle:hover {
+  background-image: var(--hcr-hover-layer-color);
+}
+
+.cxb-voucher-chevron {
+  margin-left: auto;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--hcr-content-secondary-color, #646464);
+  transition: transform 0.15s;
+}
+
+.cxb-voucher-chevron--open {
+  transform: rotate(180deg);
+}
+
+.cxb-voucher-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--hcr-spacing-2, 12px);
+  padding: 0 var(--hcr-spacing-2, 12px) var(--hcr-spacing-2, 12px);
+}
+
+.cxb-voucher-input {
+  flex: 1;
+}
+
+.cxb-voucher-apply-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ---- Pay now button ---- */
+
+.cxb-pay-btn {
+  width: 100%;
+}
+
+/* ---- Mobile order summary ---- */
+
+.cxb-order-mobile .cxb-booking-block {
+  padding: 0 var(--hcr-spacing-2, 12px);
+}
+
+/* ---- Contract note ---- */
+
+.cxb-contract {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: var(--hcr-spacing-2, 12px) var(--hcr-spacing-3, 18px) var(--hcr-spacing-4, 24px);
+}
+
+.cxb-contract-text {
+  color: var(--hcr-content-secondary-color, #646464) !important;
+}
+
+/* ---- Footer ---- */
+
+.cxb-footer-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cxb-footer-bar {
+  background-image: var(--hcr-hover-layer-color);
+}
+
+.cxb-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--hcr-spacing-2, 12px);
+  padding: var(--hcr-spacing-3, 18px) var(--hcr-spacing-4, 24px);
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.cxb-footer-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 18px;
+  color: var(--hcr-content-secondary-color, #646464);
+  text-decoration: none;
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.cxb-footer-link:hover {
+  text-decoration: underline;
+}
+
+.cxb-footer-copy {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 18px;
+  color: var(--hcr-content-secondary-color, #646464);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+/* ---- Utilities ---- */
+
+.cxb-page input::placeholder {
+  color: var(--hcr-content-secondary-color, #646464);
+}
+
+.cxb-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.cxb-inline-link {
+  color: var(--hcr-interactive-primary-color, #0073de);
+  text-decoration: underline;
+}
