@@ -1,0 +1,23 @@
+{
+  "name": "search-prototype",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@flixbus/honeycomb": "^16.5.1",
+    "@flixbus/honeycomb-icons-react": "^10.5.0",
+    "@flixbus/honeycomb-react": "^16.0.0",
+    "@fontsource/roboto": "^5.2.10",
+    "@vitejs/plugin-react": "^5.1.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
+  "devDependencies": {}
+}

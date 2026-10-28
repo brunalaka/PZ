@@ -1,0 +1,323 @@
+/* ── Page shell ─────────────────────────────────────────────── */
+.fh-page {
+  min-height: 100dvh;
+  background-color: var(--hcr-bg-secondary-color);
+  display: flex;
+  flex-direction: column;
+  max-width: 375px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.fh-header-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--hcr-spacing-1);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Main content ────────────────────────────────────────────── */
+.fh-main {
+  flex: 1;
+  /* account for fixed header (~56px) + bottom nav (~64px) */
+  padding-top: calc(56px + var(--hcr-spacing-4));
+  padding-bottom: calc(64px + var(--hcr-spacing-4));
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-4);
+}
+
+/* ── Greeting ────────────────────────────────────────────────── */
+.fh-greeting {
+  padding: 0 var(--hcr-spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-half);
+}
+
+.fh-greeting__sub {
+  color: var(--hcr-content-secondary-color);
+}
+
+/* ── Filter chips ────────────────────────────────────────────── */
+.fh-filters {
+  position: sticky;
+  top: 56px;
+  z-index: 10;
+  background-color: var(--hcr-bg-secondary-color);
+  padding: var(--hcr-spacing-2) 0;
+}
+
+.fh-filters__inner {
+  display: flex;
+  gap: var(--hcr-spacing-2);
+  padding: 0 var(--hcr-spacing-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fh-filters__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.fh-filter-chip {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* ── Sections ────────────────────────────────────────────────── */
+.fh-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2);
+}
+
+.fh-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--hcr-spacing-2);
+}
+
+.fh-section__title {
+  padding: 0 var(--hcr-spacing-2);
+}
+
+/* When header div wraps the title, remove individual padding */
+.fh-section__header .fh-section__title {
+  padding: 0;
+}
+
+.fh-section__see-all {
+  flex-shrink: 0;
+}
+
+/* ── Upcoming trip card ──────────────────────────────────────── */
+.fh-trip-card {
+  margin: 0 var(--hcr-spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2);
+}
+
+.fh-trip-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--hcr-spacing-2);
+}
+
+.fh-trip-card__route {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+}
+
+.fh-trip-card__arrow {
+  color: var(--hcr-content-secondary-color);
+}
+
+.fh-trip-card__info-row {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+}
+
+.fh-trip-info-icon {
+  color: var(--hcr-content-secondary-color);
+  flex-shrink: 0;
+}
+
+.fh-trip-card__connection {
+  margin: var(--hcr-spacing-1) 0;
+}
+
+.fh-trip-card__booking-ref {
+  color: var(--hcr-content-secondary-color);
+}
+
+.fh-trip-card__ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2);
+  padding-top: var(--hcr-spacing-1);
+}
+
+.fh-trip-card__cta-link {
+  white-space: nowrap;
+}
+
+/* ── Horizontal scroll rows ──────────────────────────────────── */
+.fh-scroll-row {
+  display: flex;
+  gap: var(--hcr-spacing-2);
+  padding: 0 var(--hcr-spacing-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fh-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Route cards ─────────────────────────────────────────────── */
+.fh-route-card-wrapper {
+  flex-shrink: 0;
+  width: 152px;
+}
+
+.fh-route-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1);
+  padding: var(--hcr-spacing-2) !important;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.fh-route-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fh-route-card__icon-row {
+  display: flex;
+}
+
+.fh-route-card__bus-icon {
+  color: var(--hcr-ui-primary-color);
+}
+
+.fh-route-card__route {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.fh-route-card__from,
+.fh-route-card__to {
+  color: var(--hcr-content-primary-color);
+  font-weight: var(--hcr-font-weight-semibold);
+}
+
+.fh-route-card__arrow {
+  color: var(--hcr-content-secondary-color);
+  flex-shrink: 0;
+}
+
+.fh-route-card__price {
+  color: var(--hcr-ui-primary-color);
+}
+
+.fh-route-card__duration-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fh-route-info-icon {
+  color: var(--hcr-content-secondary-color);
+  flex-shrink: 0;
+}
+
+.fh-route-card__duration {
+  color: var(--hcr-content-secondary-color);
+}
+
+/* ── Deal cards ──────────────────────────────────────────────── */
+.fh-deal-card-wrapper {
+  flex-shrink: 0;
+  width: 168px;
+}
+
+.fh-deal-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1);
+  padding: var(--hcr-spacing-2) !important;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.fh-deal-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fh-deal-card__tags {
+  display: flex;
+}
+
+.fh-deal-card__route {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: var(--hcr-spacing-1);
+}
+
+.fh-deal-card__city {
+  color: var(--hcr-content-primary-color);
+  font-weight: var(--hcr-font-weight-semibold);
+}
+
+.fh-deal-card__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: var(--hcr-spacing-1);
+  margin-top: var(--hcr-spacing-1);
+}
+
+.fh-deal-card__price {
+  color: var(--hcr-ui-primary-color);
+}
+
+.fh-deal-card__was {
+  color: var(--hcr-content-secondary-color);
+  text-decoration: line-through;
+}
+
+.fh-deal-card__until-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fh-deal-card__until {
+  color: var(--hcr-content-secondary-color);
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.fh-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--hcr-spacing-2);
+  padding: var(--hcr-spacing-8) var(--hcr-spacing-2);
+  text-align: center;
+}
+
+.fh-empty__icon {
+  color: var(--hcr-grayscale-50-color);
+}
+
+/* ── Bottom nav ──────────────────────────────────────────────── */
+.fh-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 375px;
+  border-top: 1px solid var(--hcr-line-primary-color);
+  background-color: var(--hcr-bg-primary-color);
+  z-index: 100;
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,0 +1,238 @@
+.co-page {
+  background-color: var(--hcr-bg-secondary-color, #f7f7f7);
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ---- Header ---- */
+
+.co-header {
+  background-color: #a2e53f;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--hcr-spacing-2, 12px);
+  position: relative;
+}
+
+.co-header__back {
+  color: #fff;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.co-header__back svg,
+.co-header__back svg path {
+  fill: #fff;
+}
+
+.co-header__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+}
+
+.co-header__timer {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 3px 6px;
+  z-index: 1;
+}
+
+.co-timer-text {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--hcr-content-primary-color, #353535);
+  white-space: nowrap;
+}
+
+/* ---- Main ---- */
+
+.co-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+  padding: var(--hcr-spacing-2, 12px) 0;
+}
+
+/* ---- Cards ---- */
+
+.co-card {
+  background-color: var(--hcr-box-bg-color, #fff);
+  border-top: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-bottom: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  padding: var(--hcr-spacing-2, 12px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-4, 24px);
+}
+
+/* ---- Step header ---- */
+
+.co-step-header {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.co-step-badge {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  background-color: #a2e53f;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--hcr-content-primary-color, #353535);
+}
+
+/* ---- Passenger forms ---- */
+
+.co-passengers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-4, 24px);
+}
+
+.co-passenger-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-3, 18px);
+}
+
+.co-passenger-label {
+  font-weight: 700 !important;
+}
+
+/* ---- Seat reservation ---- */
+
+.co-ancillaries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2, 12px);
+}
+
+.co-ancillary-option {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-4, 24px);
+  padding: var(--hcr-spacing-1, 6px) var(--hcr-spacing-2, 12px);
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  min-height: 50px;
+}
+
+.co-seat-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.co-seat-map img {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+
+.co-seat-map__selected {
+  width: 19px;
+  height: 19px;
+  background-color: #a2e53f;
+  border-radius: 7px 7px 3px 3px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2px;
+}
+
+.co-ancillary-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.co-ancillary-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.co-ancillary-price {
+  color: var(--hcr-content-secondary-color, #646464);
+}
+
+.co-ancillary-chevron {
+  flex-shrink: 0;
+}
+
+/* ---- Payment ---- */
+
+.co-payment-fieldset {
+  border: 1px solid var(--hcr-line-primary-color, #c8c8c8);
+  border-radius: 6px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.co-payment-radio-row {
+  padding: var(--hcr-spacing-3, 18px) var(--hcr-spacing-2, 12px);
+  margin-bottom: 0 !important;
+}
+
+.co-payment-label {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-2, 12px);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  color: var(--hcr-content-primary-color, #353535);
+  font-family: var(--hcr-font-family-primary, Roboto, Arial, sans-serif);
+}
+
+.co-payment-logo {
+  width: 36px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.co-billing-btn {
+  align-self: flex-start;
+}
+
+/* ---- Utilities ---- */
+
+.co-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

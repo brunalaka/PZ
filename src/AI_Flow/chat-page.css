@@ -41,7 +41,7 @@
   align-self: center;
   width: 100%;
   max-width: 780px;
-  padding: var(--hcr-spacing-2);
+  padding: var(--hcr-spacing-4);
   gap: 6px;
 }
 
@@ -63,9 +63,9 @@
   margin: 0;
   color: var(--hcr-heading-font-color);
   font-family: var(--hcr-font-family-primary);
-  font-size: var(--hcr-font-size-h4);
+  font-size: var(--hcr-font-size-h1);
   font-weight: var(--hcr-font-weight-bold);
-  line-height: var(--hcr-line-height-h4);
+  line-height: var(--hcr-line-height-h1);
   text-align: center;
 }
 
@@ -101,7 +101,7 @@
   width: 100%;
   max-width: 780px;
   gap: 6px;
-  padding: var(--hcr-spacing-2) var(--hcr-spacing-2) var(--hcr-spacing-4);
+  padding: var(--hcr-spacing-3) var(--hcr-spacing-3) var(--hcr-spacing-3);
   background-color: var(--hcr-box-bg-color);
 }
 

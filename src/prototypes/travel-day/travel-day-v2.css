@@ -1,0 +1,207 @@
+.td2-page {
+  max-width: 428px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background-color: var(--hcr-grayscale-10-color);
+}
+
+/* Header */
+.td2-header {
+  max-width: 428px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.td2-header__back {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+  color: var(--hcr-content-primary-color);
+}
+
+.td2-header__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.td2-header__spacer {
+  width: 60px;
+}
+
+/* Status banner — sits flush below fixed header, edge-to-edge */
+.td2-status-wrap {
+  padding-top: 48px;
+}
+
+.td2-infobox {
+  border-radius: 0 !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.td2-status-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--hcr-spacing-2);
+  width: 100%;
+}
+
+.td2-status-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.td2-status-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.td2-status-link__icon {
+  display: inline-flex;
+}
+
+/* Main content */
+.td2-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-3);
+  padding: var(--hcr-spacing-3);
+}
+
+.td2-card {
+  width: 100%;
+}
+
+/* Journey date label */
+.td2-journey-date {
+  display: block;
+  color: var(--hcr-content-secondary-color);
+  margin-bottom: var(--hcr-spacing-2);
+}
+
+/* Connection component inline slot */
+.td2-connection {
+  margin-top: var(--hcr-spacing-1);
+}
+
+.td2-connection-slot {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+  color: var(--hcr-content-secondary-color);
+}
+
+.td2-connection-slot__icon {
+  flex-shrink: 0;
+  color: var(--hcr-content-secondary-color);
+}
+
+/* Platform + Seat tiles */
+.td2-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: var(--hcr-spacing-3);
+  padding-top: var(--hcr-spacing-3);
+  border-top: 1px solid var(--hcr-line-primary-color);
+}
+
+.td2-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-1);
+  padding: 0 var(--hcr-spacing-2) 0 0;
+}
+
+.td2-tile--right {
+  padding: 0 0 0 var(--hcr-spacing-2);
+  border-left: 1px solid var(--hcr-line-primary-color);
+}
+
+.td2-tile__label {
+  display: flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+  color: var(--hcr-content-secondary-color);
+  font-size: var(--hcr-font-size-small);
+}
+
+.td2-tile__value {
+  display: block;
+  color: var(--hcr-content-primary-color);
+}
+
+/* QR boarding pass card */
+.td2-qr-card {
+  text-align: center;
+}
+
+.td2-qr-title {
+  margin-bottom: var(--hcr-spacing-1) !important;
+}
+
+.td2-qr-subtitle {
+  display: block;
+  color: var(--hcr-content-secondary-color);
+  margin-bottom: var(--hcr-spacing-3);
+}
+
+.td2-qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--hcr-spacing-3);
+}
+
+.td2-qr-frame {
+  padding: var(--hcr-spacing-2);
+  background: white;
+  border-radius: var(--hcr-border-radius-medium);
+  display: inline-flex;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.td2-qr-svg {
+  display: block;
+}
+
+.td2-qr-route {
+  display: block;
+  color: var(--hcr-content-secondary-color);
+  margin-bottom: var(--hcr-spacing-2);
+}
+
+.td2-wallet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--hcr-spacing-1);
+}
+
+/* CTAs */
+.td2-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hcr-spacing-2);
+}
+
+/* Prototype toggle */
+.td2-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hcr-spacing-1);
+  padding: var(--hcr-spacing-2) 0 var(--hcr-spacing-4);
+  border-top: 1px dashed var(--hcr-line-primary-color);
+}
+
+.td2-toggle__label {
+  color: var(--hcr-content-secondary-color);
+}
+
+.td2-toggle__btn {
+  font-size: var(--hcr-font-size-small);
+}

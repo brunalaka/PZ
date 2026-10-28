@@ -116,7 +116,7 @@ export const ChatPage = () => {
           <Icon
             InlineIcon={IconSpark}
             aria-hidden="true"
-            size={6}
+            size={10}
             extraClasses="aif-chat-page__spark"
           />
           <p className="aif-chat-page__title">Find your trip with AI</p>
