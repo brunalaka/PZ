@@ -10,6 +10,7 @@ import { CheckoutExplorationBase } from './prototypes/CheckoutExploration/base';
 import { CheckoutExplorationAirbnb } from './prototypes/CheckoutExploration/airbnb';
 import { SeatsBasePrototype } from './prototypes/Seats base/SeatsBasePrototype';
 import { SeatPremiumZone } from './prototypes/Seat_Premium_Zone/SeatPremiumZone';
+import { SeatPremiumZone as SeatPZOption4 } from './prototypes/Seat_PZ_Option4/SeatPremiumZone';
 
 import '@flixbus/honeycomb/dist/css/honeycomb-fonts.css';
 import './App.css';
@@ -27,6 +28,8 @@ const App = () => (
         <Route path="/checkout-exploration/airbnb" element={<CheckoutExplorationAirbnb />} />
         <Route path="/seats-base" element={<SeatsBasePrototype />} />
         <Route path="/seat-premium-zone" element={<SeatPremiumZone />} />
+        <Route path="/seat-pz-4" element={<SeatPZOption4 />} />
+        <Route path="/seat-pz-4/seatmap" element={<SeatPZOption4 defaultSeatMapOpen />} />
       </Routes>
     </BrowserRouter>
   </ThemeWrapper>
