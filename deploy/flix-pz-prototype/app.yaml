@@ -15,6 +15,4 @@ spec:
     - groups:
       - Flix Team AAD
       name: viewer
-  runtime: generic
-  secrets:
-  - NPM_TOKEN
+  runtime: nginx
