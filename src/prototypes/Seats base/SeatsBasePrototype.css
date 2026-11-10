@@ -1352,10 +1352,8 @@ button.sp-suggestion-row:focus-visible {
 .sp-results-controls {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   width: 100%;
-  height: 111px;
-  padding: 12px 6px;
+  padding: 0 6px;
   overflow: hidden;
   background: #ffffff;
 }

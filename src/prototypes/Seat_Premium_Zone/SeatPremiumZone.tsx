@@ -31,22 +31,18 @@ import {
   IconArrowUp,
   IconInfo,
   IconBus,
-  IconBusTrain,
   IconBusStop,
   IconClose,
   IconEditSolid,
   IconFilter,
   IconNight,
   IconRefresh,
-  IconRideTransfer,
   IconSocket,
   IconSort,
   IconStopwatch,
   IconSun,
   IconSunrise,
   IconSunset,
-  IconTrain,
-  IconTrainStop,
   IconTransfer,
   IconWifi,
 } from '@flixbus/honeycomb-icons-react';
@@ -54,8 +50,7 @@ import {
 import './SeatPremiumZone.css';
 import { tripResults, type TripResult } from './resultsData';
 import { SeatMap } from './SeatMap';
-import iconDiamondDark from './assets/icon-diamond-dark.svg';
-import iconDiamondLight from './assets/icon-diamond-light.svg';
+import iconDiamondNew from './assets/New-seats-and-icons/Diamond24.png';
 import photoSeatPremiumZone from './assets/photo-seat-premium-zone.png';
 import arrowRightArcDots from './arrow-right-arc-dots.svg';
 
@@ -83,7 +78,6 @@ const timeFilterSections = [
 ] as const;
 
 type TimeFilterKey = (typeof timeFilterSections)[number]['options'][number]['key'];
-type TransportFilter = 'all' | 'train';
 type SortOption = 'departure' | 'price' | 'duration' | 'best';
 type TimeFilterPeriod = 'morning' | 'afternoon' | 'evening' | 'night';
 type QuickFilterKey = 'main-station' | 'direct' | 'under-20';
@@ -94,21 +88,17 @@ type DurationRange = { max: number; min: number };
 const berlinStopOptions = [
   { station: 'Berlin Alexanderplatz', icon: IconBusStop },
   { station: 'Berlin Alt-Tegel', icon: IconBusStop },
-  { station: 'Berlin Central Station', icon: IconTrainStop },
-  { station: 'Berlin Ostbahnhof', icon: IconTrainStop },
   { station: 'Berlin S-Treptower Park', icon: IconBusStop },
   { station: 'Berlin Südkreuz', icon: IconBusStop },
   { station: 'Berlin central bus station', icon: IconBusStop },
-  { station: 'Berlin-Spandau', icon: IconTrainStop },
 ];
 
 const hamburgStopOptions = [
-  { station: 'Hamburg Central Station', icon: IconTrainStop },
   { station: 'Hamburg ZOB', icon: IconBusStop },
 ];
 
-const mainDepartureStations = ['Berlin Central Station', 'Berlin central bus station'];
-const mainArrivalStations = ['Hamburg Central Station', 'Hamburg ZOB'];
+const mainDepartureStations = ['Berlin central bus station'];
+const mainArrivalStations = ['Hamburg ZOB'];
 
 const quickFilterOptions: Array<{ key: QuickFilterKey; label: string }> = [
   { key: 'main-station', label: 'Main station only' },
@@ -463,7 +453,7 @@ const TripCard = ({
   trip: TripResult;
 }) => {
   const urgencyText = trip.urgencyText;
-  const TransportIcon = trip.mode === 'Train' ? IconTrain : IconBus;
+  const TransportIcon = IconBus;
 
   return (
     <article
@@ -549,10 +539,10 @@ const TripCard = ({
       </div>
 
       {trip.premiumZone && (
-        <div className="trip-pz-row">
-          <img src={iconDiamondDark} width={24} height={24} alt="" aria-hidden="true" />
-          <span className="trip-pz-label">Premium Zone available</span>
-        </div>
+        <button className="trip-pz-row" type="button" onClick={onOpenDetails}>
+          <img src={iconDiamondNew} width={24} height={24} alt="" aria-hidden="true" />
+          <span className="trip-pz-label">Premium Zone</span>
+        </button>
       )}
 
       {infoText && <span className="trip-card-info-text">{infoText}</span>}
@@ -560,8 +550,7 @@ const TripCard = ({
   );
 };
 
-export const SeatPremiumZone = () => {
-  const [transportFilter, setTransportFilter] = useState<TransportFilter>('all');
+export const SeatPremiumZone = ({ defaultSeatMapOpen = false }: { defaultSeatMapOpen?: boolean }) => {
   const [appliedSort, setAppliedSort] = useState<SortOption>('departure');
   const [draftSort, setDraftSort] = useState<SortOption>('departure');
   const [isSortPanelOpen, setIsSortPanelOpen] = useState(false);
@@ -582,7 +571,7 @@ export const SeatPremiumZone = () => {
   const [draftResultsTimeFilters, setDraftResultsTimeFilters] = useState<TimeFilterKey[]>([]);
   const [isResultsTimesPanelOpen, setIsResultsTimesPanelOpen] = useState(false);
   const [areMoreResultsShown, setAreMoreResultsShown] = useState(false);
-  const [isSeatMapOpen, setIsSeatMapOpen] = useState(false);
+  const [isSeatMapOpen, setIsSeatMapOpen] = useState(defaultSeatMapOpen);
   const [isPremiumZoneInfoOpen, setIsPremiumZoneInfoOpen] = useState(false);
   const [tripDetailsSheet, setTripDetailsSheet] = useState<TripResult | null>(null);
   const [isLoadingMoreResults, setIsLoadingMoreResults] = useState(false);
@@ -602,10 +591,7 @@ export const SeatPremiumZone = () => {
     return () => { document.body.style.overflow = ''; };
   }, [anyPanelOpen]);
 
-  const transportFilteredResults = transportFilter === 'train'
-    ? tripResults.filter((trip) => trip.mode === 'Train')
-    : tripResults;
-  const quickFilteredResults = filterTripsByQuickFilters(transportFilteredResults, quickFilters);
+  const quickFilteredResults = filterTripsByQuickFilters(tripResults, quickFilters);
   const timeFilteredResults = filterTripsByTimes(quickFilteredResults, appliedTimeFilters);
   const stopFilteredResults = filterTripsByStops(timeFilteredResults, appliedBerlinStops, appliedHamburgStops);
   const durationFilteredResults = filterTripsByDurationRange(stopFilteredResults, appliedDurationRange);
@@ -657,7 +643,7 @@ export const SeatPremiumZone = () => {
   const getHamburgStopOptionTripCount = (station: string) => getAllFiltersDraftResults(draftBerlinStops, [station]).length;
 
   const getResultsForQuickFilterSelection = (candidateQuickFilters: QuickFilterKey[]) => {
-    const candidateQuickFilteredResults = filterTripsByQuickFilters(transportFilteredResults, candidateQuickFilters);
+    const candidateQuickFilteredResults = filterTripsByQuickFilters(tripResults, candidateQuickFilters);
     const candidateTimeFilteredResults = filterTripsByTimes(candidateQuickFilteredResults, appliedTimeFilters);
     const candidateStopFilteredResults = filterTripsByStops(candidateTimeFilteredResults, appliedBerlinStops, appliedHamburgStops);
     const candidateDurationFilteredResults = filterTripsByDurationRange(candidateStopFilteredResults, appliedDurationRange);
@@ -717,17 +703,6 @@ export const SeatPremiumZone = () => {
       setDraftPriceRange(nextDraftRange);
     }
   }, [draftPriceRange, isPricePanelOpen, priceBounds.max, priceBounds.min]);
-
-  const handleTransportFilterChange = (nextFilter: TransportFilter) => {
-    if (nextFilter === transportFilter) return;
-    stopLoadingMoreResults();
-    setIsAllFiltersPanelOpen(false);
-    setIsSortPanelOpen(false);
-    setIsResultsTimesPanelOpen(false);
-    setIsPricePanelOpen(false);
-    setTransportFilter(nextFilter);
-    resetMoreResults();
-  };
 
   const toggleQuickFilter = (key: QuickFilterKey) => {
     setQuickFilters((current) => current.includes(key) ? current.filter((k) => k !== key) : [...current, key]);
@@ -885,9 +860,6 @@ export const SeatPremiumZone = () => {
     }, 700);
   };
 
-  const isAllTransportSelected = transportFilter === 'all';
-  const isTrainSelected = transportFilter === 'train';
-
   return (
     <main className="sp-search-homepage sp-results-page" aria-label="Search results">
       <section className="sp-results-search-header" aria-label="Search summary">
@@ -918,36 +890,13 @@ export const SeatPremiumZone = () => {
         </HeaderBar>
 
         <div className="sp-date-row" aria-label="Travel dates">
-          <button className="sp-date-pill sp-date-pill--muted" type="button">Sat, 19 Nov</button>
-          <button className="sp-date-pill sp-date-pill--selected" type="button">Sun, 20 Nov</button>
-          <button className="sp-date-pill" type="button">Mon, 21 Nov</button>
+          <button className="sp-date-pill sp-date-pill--muted" type="button">Sat, 21 Nov</button>
+          <button className="sp-date-pill sp-date-pill--selected" type="button">Sun, 22 Nov</button>
+          <button className="sp-date-pill" type="button">Mon, 23 Nov</button>
         </div>
       </section>
 
       <section className="sp-results-controls" aria-label="Filters">
-        <div className="sp-transport-switcher" role="tablist" aria-label="Transport type">
-          <button
-            className={`sp-transport-tab${isAllTransportSelected ? ' sp-transport-tab--active' : ''}`}
-            type="button"
-            role="tab"
-            aria-selected={isAllTransportSelected}
-            onClick={() => handleTransportFilterChange('all')}
-          >
-            <Icon InlineIcon={IconBusTrain} aria-hidden="true" size={5} />
-            <span>Bus &amp; Train</span>
-          </button>
-          <button
-            className={`sp-transport-tab${isTrainSelected ? ' sp-transport-tab--active' : ''}`}
-            type="button"
-            role="tab"
-            aria-selected={isTrainSelected}
-            onClick={() => handleTransportFilterChange('train')}
-          >
-            <Icon InlineIcon={IconTrain} aria-hidden="true" size={5} />
-            <span>Train</span>
-          </button>
-        </div>
-
         <div className="sp-filter-bar">
           <div className="sp-filter-bar-left">
             <Tag
@@ -995,7 +944,7 @@ export const SeatPremiumZone = () => {
             <Icon InlineIcon={IconInfo} aria-hidden="true" size={4} />
             <div className="sp-pz-infobox-text">
               <p className="sp-pz-infobox-title"><strong>New!</strong> Premium Zone</p>
-              <p className="sp-pz-infobox-desc">Enjoy a more comfortable journey, faster Wi-Fi and priority boarding.</p>
+              <p className="sp-pz-infobox-desc">Enjoy a more comfortable journey, better Wi-Fi and priority boarding on selected buses.</p>
             </div>
             <span className="sp-pz-infobox-arrow" aria-hidden="true">
               <Icon InlineIcon={IconArrowDown} aria-hidden="true" size={4} />
@@ -1352,7 +1301,7 @@ export const SeatPremiumZone = () => {
                   {tripDetailsSheet.premiumZone && legIndex === legs.length - 1 && (
                     <div className="sp-tdp-pz-tag-row">
                       <Tag extraClasses="sp-pz-pill">
-                        <img src={iconDiamondLight} width={24} height={24} alt="" aria-hidden="true" className="sp-pz-pill-icon" />
+                        <img src={iconDiamondNew} width={24} height={24} alt="" aria-hidden="true" className="sp-pz-pill-icon" style={{ filter: 'brightness(0) invert(1)' }} />
                         Premium Zone
                         <button
                           type="button"
@@ -1416,17 +1365,17 @@ export const SeatPremiumZone = () => {
           </PanelHeader>
           <PanelContent extraClasses="sp-pz-info-content">
             <Tag extraClasses="sp-pz-pill">
-              <img src={iconDiamondLight} width={24} height={24} alt="" aria-hidden="true" className="sp-pz-pill-icon" />
+              <img src={iconDiamondNew} width={24} height={24} alt="" aria-hidden="true" className="sp-pz-pill-icon" style={{ filter: 'brightness(0) invert(1)' }} />
               Premium Zone
             </Tag>
-            <p className="sp-pz-info-tagline">Comfort | faster Wi-Fi | priority boarding</p>
+            <p className="sp-pz-info-tagline">Comfort | better Wi-Fi | priority boarding</p>
             <img
               src={photoSeatPremiumZone}
               alt="Premium Zone seating interior"
               className="sp-pz-info-photo"
             />
             <p className="sp-pz-info-desc">
-              A new way to travel for those who value comfort, privacy and a little more personal space. Choose a ride with <strong>Premium Zone</strong> available and select a seat in this area to enjoy a more comfortable journey, faster Wi-Fi and priority boarding.
+              A new way to travel for those who value comfort, privacy and a little more personal space. Choose a ride with <strong>Premium Zone</strong> and select a seat in this area to enjoy a more comfortable journey, better Wi-Fi and priority boarding.
             </p>
           </PanelContent>
         </Panel>

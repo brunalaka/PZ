@@ -1,9 +1,10 @@
 export type SeatType = 'classic' | 'front' | 'panorama' | 'premium';
 export type SeatStatus = 'available' | 'selected' | 'unavailable';
+export type ColId = 'LEFT' | 'RIGHT_A' | 'RIGHT_B';
 
 export interface SeatDef {
   id: string;
-  col: 'A' | 'B' | 'C' | 'D' | 'CENTER';
+  col: ColId;
   slot: number; // row slot index (0-based), used to compute y position
   type: SeatType;
 }
@@ -32,65 +33,61 @@ export interface DeckDef {
   rowLabels: RowLabel[];
   doors: Array<{ top: number }>;
   premiumZoneDividerSlot?: number; // classic seats start at this slot; divider renders before it
-  premiumZoneGap?: number; // extra pixels added to all slots >= premiumZoneDividerSlot (accommodates divider + gaps)
+  premiumZoneGap?: number; // extra pixels added to all slots >= premiumZoneDividerSlot
 }
 
-// ─── Column X positions (304px canvas, 3px intra-pair gaps for A-B and C-D) ─
+export const CANVAS_WIDTH = 304;
+
+// ─── Column X positions (304px canvas, 1 seat left + 2 seats right) ──────────
+// Shifted so seat area (245px) is centred: ~30px left margin, ~29px right margin.
 export const COL_X: Record<string, number> = {
-  A: 17,
-  B: 74,
-  CENTER: 128,
-  C: 182,
-  D: 239,
+  LEFT: 30,
+  CENTER: 97,   // row label centre in the gap between LEFT and right pair
+  RIGHT_A: 163,
+  RIGHT_B: 221, // 163 + 54 + 4px gap
 };
 
-export const SEAT_SIZE = 54; // 64px Figma × 0.844 — 12px bigger than 42px legend icons
+export const SEAT_SIZE = 54;
 
 export const LOWER_START_Y = 86;
-export const UPPER_START_Y = 80; // badge (24px) + 6px gap + description (18px) + 12px gap above row 1
+export const UPPER_START_Y = 20; // small top gap above row 1
 
-// ─── Lower deck ──────────────────────────────────────────────────────────────
-// Rows: 1–6 (slots 0–5): all 4 seats
-// Slot 6 (row 7): A,B only — toilet on right
-// Slot 7 (row 8): A,B only — stairs on right
-// Slots 8–10 (rows 10–12): all 4 seats
-// Slots 11–12 (rows 14–15): all 4 seats
-// Slot 13 (unlabeled): A,B,CENTER,C,D
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 
-function makeSeat(deck: 'lower' | 'upper', slot: number, col: SeatDef['col'], type: SeatType): SeatDef {
+function makeSeat(deck: 'lower' | 'upper', slot: number, col: ColId, type: SeatType): SeatDef {
   return { id: `${deck}-${slot}-${col}`, col, slot, type };
 }
 
-function fourSeats(deck: 'lower' | 'upper', slot: number, type: SeatType = 'classic'): SeatDef[] {
-  return ['A', 'B', 'C', 'D'].map((c) => makeSeat(deck, slot, c as SeatDef['col'], type));
+function threeSeats(deck: 'lower' | 'upper', slot: number, type: SeatType = 'classic'): SeatDef[] {
+  return (['LEFT', 'RIGHT_A', 'RIGHT_B'] as ColId[]).map((c) => makeSeat(deck, slot, c, type));
 }
 
-function leftPair(deck: 'lower' | 'upper', slot: number, type: SeatType = 'classic'): SeatDef[] {
-  return ['A', 'B'].map((c) => makeSeat(deck, slot, c as 'A' | 'B', type));
+function leftOnly(deck: 'lower' | 'upper', slot: number, type: SeatType = 'classic'): SeatDef[] {
+  return [makeSeat(deck, slot, 'LEFT', type)];
 }
 
-function rightPair(deck: 'lower' | 'upper', slot: number, type: SeatType = 'classic'): SeatDef[] {
-  return ['C', 'D'].map((c) => makeSeat(deck, slot, c as 'C' | 'D', type));
-}
+// ─── Lower deck ──────────────────────────────────────────────────────────────
+// Row 1  (slot 0):      panorama — 3 seats
+// Rows 2–5 (slots 1–4): front    — 3 seats each
+// Row 6  (slot 5):      classic  — 3 seats
+// Row 7  (slot 6):      LEFT only — toilet on right
+// Row 8  (slot 7):      LEFT only — stairs on right
+// Rows 9–13 (slots 8–12): classic — 3 seats each
 
 const lowerSeats: SeatDef[] = [
-  ...fourSeats('lower', 0, 'panorama'), // row 1
-  ...fourSeats('lower', 1, 'front'),    // row 2
-  ...fourSeats('lower', 2, 'front'),    // row 3
-  ...fourSeats('lower', 3, 'front'),    // row 4
-  ...fourSeats('lower', 4, 'front'),    // row 5
-  ...fourSeats('lower', 5),             // row 6
-  ...leftPair('lower', 6),              // row 7 (right = toilet)
-  ...leftPair('lower', 7),              // row 8 (right = stairs)
-  ...fourSeats('lower', 8),             // row 10
-  ...fourSeats('lower', 9),             // row 11
-  ...fourSeats('lower', 10),            // row 12
-  ...fourSeats('lower', 11),            // row 14
-  ...fourSeats('lower', 12),            // row 15
-  // last row: A, B, CENTER, C, D
-  ...(['A', 'B', 'CENTER', 'C', 'D'] as SeatDef['col'][]).map((c) =>
-    makeSeat('lower', 13, c, 'classic'),
-  ),
+  ...threeSeats('lower', 0, 'panorama'), // row 1
+  ...threeSeats('lower', 1, 'front'),    // row 2
+  ...threeSeats('lower', 2, 'front'),    // row 3
+  ...threeSeats('lower', 3, 'front'),    // row 4
+  ...threeSeats('lower', 4, 'front'),    // row 5
+  ...threeSeats('lower', 5),             // row 6
+  ...leftOnly('lower', 6),               // row 7 (right = toilet)
+  ...leftOnly('lower', 7),               // row 8 (right = stairs)
+  ...threeSeats('lower', 8),             // row 9
+  ...threeSeats('lower', 9),             // row 10
+  ...threeSeats('lower', 10),            // row 11
+  ...threeSeats('lower', 11),            // row 12
+  ...threeSeats('lower', 12),            // row 13
 ];
 
 const lowerSpecials: SpecialElement[] = [
@@ -107,17 +104,17 @@ const lowerRowLabels: RowLabel[] = [
   { label: 6, slot: 5 },
   { label: 7, slot: 6 },
   { label: 8, slot: 7 },
-  { label: 10, slot: 8 },
-  { label: 11, slot: 9 },
-  { label: 12, slot: 10 },
-  { label: 14, slot: 11 },
-  { label: 15, slot: 12 },
+  { label: 9, slot: 8 },
+  { label: 10, slot: 9 },
+  { label: 11, slot: 10 },
+  { label: 12, slot: 11 },
+  { label: 13, slot: 12 },
 ];
 
 export const lowerDeck: DeckDef = {
   id: 'lower',
   showDriver: true,
-  canvasHeight: 870,
+  canvasHeight: 810,
   seats: lowerSeats,
   specials: lowerSpecials,
   rowLabels: lowerRowLabels,
@@ -125,38 +122,29 @@ export const lowerDeck: DeckDef = {
 };
 
 // ─── Upper deck ──────────────────────────────────────────────────────────────
-// Slot 0 (row 1): 4 panorama seats
-// Slots 1–2 (rows 2–3): right pair only; left has stairs spanning these 2 slots
-// Slots 3–9 (rows 5–11): all 4 seats
-// Slots 10–11 (row 12 + unlabeled): left pair only; right has stairs spanning 2 slots
-// Slots 12–14 (rows 14–16): all 4 seats
-// Slot 15 (unlabeled): A, B, CENTER, C, D
+// Slots 0–2 (rows 1–3):  premium  — 3 seats each (Premium Zone)
+// Slots 3–6 (rows 4–7):  classic  — 3 seats each
+// Slot  7   (row 8):     LEFT only — stairs on right
+// Slots 8–12 (rows 9–13): classic — 3 seats each
 
 const upperSeats: SeatDef[] = [
-  ...fourSeats('upper', 0, 'premium'),        // row 1 — all premium
-  ...rightPair('upper', 1, 'premium'),        // row 2 — right pair premium (left = stairs)
-  ...rightPair('upper', 2, 'premium'),        // row 3 — right pair premium (left = stairs)
-  ...fourSeats('upper', 3),             // row 5
-  ...fourSeats('upper', 4),             // row 6
-  ...fourSeats('upper', 5),             // row 7
-  ...fourSeats('upper', 6),             // row 8
-  ...fourSeats('upper', 7),             // row 9
-  ...fourSeats('upper', 8),             // row 10
-  ...fourSeats('upper', 9),             // row 11
-  ...leftPair('upper', 10),             // row 12 (right = stairs)
-  ...leftPair('upper', 11),             // unlabeled (right = stairs continued)
-  ...fourSeats('upper', 12),            // row 14
-  ...fourSeats('upper', 13),            // row 15
-  ...fourSeats('upper', 14),            // row 16
-  // last row: A, B, CENTER, C, D
-  ...(['A', 'B', 'CENTER', 'C', 'D'] as SeatDef['col'][]).map((c) =>
-    makeSeat('upper', 15, c, 'classic'),
-  ),
+  ...threeSeats('upper', 0, 'premium'),  // row 1 — premium zone
+  ...threeSeats('upper', 1, 'premium'),  // row 2 — premium zone
+  ...threeSeats('upper', 2, 'premium'),  // row 3 — premium zone
+  ...threeSeats('upper', 3),             // row 4
+  ...threeSeats('upper', 4),             // row 5
+  ...threeSeats('upper', 5),             // row 6
+  ...threeSeats('upper', 6),             // row 7
+  ...leftOnly('upper', 7),               // row 8 (right = stairs)
+  ...threeSeats('upper', 8),             // row 9
+  ...threeSeats('upper', 9),             // row 10
+  ...threeSeats('upper', 10),            // row 11
+  ...threeSeats('upper', 11),            // row 12
+  ...threeSeats('upper', 12),            // row 13
 ];
 
 const upperSpecials: SpecialElement[] = [
-  { type: 'stairs', slot: 1, side: 'left', heightSlots: 2, iconSide: 'left' },
-  { type: 'stairs', slot: 10, side: 'right', heightSlots: 2, iconSide: 'right' },
+  { type: 'stairs', slot: 7, side: 'right', iconSide: 'right' },
 ];
 
 const upperRowLabels: RowLabel[] = [
@@ -173,18 +161,16 @@ const upperRowLabels: RowLabel[] = [
   { label: 11, slot: 10 },
   { label: 12, slot: 11 },
   { label: 13, slot: 12 },
-  { label: 14, slot: 13 },
-  { label: 15, slot: 14 },
 ];
 
 export const upperDeck: DeckDef = {
   id: 'upper',
   showDriver: false,
-  canvasHeight: 978, // UPPER_START_Y(80) + 16 slots × 54px + premiumZoneGap(14) + 20px bottom padding
+  canvasHeight: 760, // UPPER_START_Y(20) + 13 slots × 54px + premiumZoneGap(14) + 24px bottom padding
   seats: upperSeats,
   specials: upperSpecials,
   rowLabels: upperRowLabels,
   doors: [],
-  premiumZoneDividerSlot: 3, // divider between row 3 (premium) and row 5 (classic)
-  premiumZoneGap: 14, // 6px gap above divider + 2px divider + 6px gap below
+  premiumZoneDividerSlot: 3,
+  premiumZoneGap: 14,
 };

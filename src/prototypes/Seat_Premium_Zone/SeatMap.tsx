@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
   Button,
-  Divider,
   Heading,
   NavHorizontal,
   NavItem,
@@ -10,13 +9,13 @@ import {
   PanelFooter,
   PanelFooterColumn,
   PanelHeader,
-  Tag,
   Text,
 } from '@flixbus/honeycomb-react';
 import { Icon, IconArrowLeft, IconClose } from '@flixbus/honeycomb-icons-react';
 
 import './SeatMap.css';
 import {
+  CANVAS_WIDTH,
   COL_X,
   LOWER_START_Y,
   SEAT_SIZE,
@@ -27,6 +26,7 @@ import {
   type SeatDef,
   type SeatStatus,
   type SeatType,
+  type ColId,
 } from './seatMapData';
 
 import photoSeatClassic from './assets/photo-seat-classic.png';
@@ -35,11 +35,8 @@ import photoSeatPanorama from './assets/photo-seat-panorama.png';
 import photoSeatPremiumZone from './assets/photo-seat-premium-zone.png';
 
 import seatOutline from './assets/seat-outline.svg';
-import seatOutlinePremium from './assets/seat-outline-premium.svg';
 import iconStar from './assets/icon-star.svg';
 import iconFrontArrow from './assets/icon-front-arrow.svg';
-import iconDiamondDark from './assets/icon-diamond-dark.svg';
-import iconDiamondLight from './assets/icon-diamond-light.svg';
 import busWindshieldLower from './assets/bus-windshield.svg';
 import busWindshieldUpper from './assets/bus-windshield-upper.svg';
 import busDriver from './assets/bus-driver.svg';
@@ -52,7 +49,8 @@ import seatUnavailable from './assets/seat-unavailable.svg';
 import iconSeatClassic from './assets/icon-seat-classic.svg';
 import iconSeatFront from './assets/icon-seat-front.svg';
 import iconSeatPanorama from './assets/icon-seat-panorama.svg';
-import iconSeatPremium from './assets/icon-seat-premium.svg';
+import iconSeatDiamond from './assets/New-seats-and-icons/Type=Diamond.svg'; // legend only
+import iconDiamondCanvas from './assets/New-seats-and-icons/Diamond24.png'; // seat overlay
 
 // ─── Tooltip data ─────────────────────────────────────────────────────────────
 
@@ -65,12 +63,12 @@ const SEAT_TYPE_LABEL: Record<SeatType, string> = {
 
 const SEAT_TYPE_PRICE: Record<SeatType, string> = {
   classic: '2,99 €',
-  front: '4,49 €',
+  front: '3,59 €',
   panorama: '5,99 €',
   premium: '8,49 €',
 };
 
-const PREMIUM_DESCRIPTION = 'More privacy, comfort, faster Wi-Fi & priority boarding';
+const PREMIUM_DESCRIPTION = 'More privacy, comfort, better wi-fi & priority boarding';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -127,18 +125,16 @@ function SeatButton({
   const isUnavailable = status === 'unavailable';
 
   const rowLabel = deck.rowLabels.find((r) => r.slot === seat.slot)?.label;
-  const seatCode = rowLabel
-    ? seat.col === 'CENTER'
-      ? String(rowLabel)
-      : `${rowLabel}${seat.col}`
-    : seat.col;
+  const colLetter: Record<ColId, string> = { LEFT: 'A', RIGHT_A: 'B', RIGHT_B: 'C' };
+  const seatCode = rowLabel ? `${rowLabel}${colLetter[seat.col]}` : colLetter[seat.col];
 
   const classNames = [
     'sm-seat',
+    seat.type === 'premium' ? 'sm-seat--premium' : '',
     isSelected ? 'sm-seat--selected' : '',
     isUnavailable ? 'sm-seat--unavailable' : '',
-    seat.col === 'A' ? 'sm-seat--left-edge' : '',
-    seat.col === 'D' ? 'sm-seat--right-edge' : '',
+    seat.col === 'LEFT' ? 'sm-seat--left-edge' : '',
+    seat.col === 'RIGHT_B' ? 'sm-seat--right-edge' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -156,7 +152,7 @@ function SeatButton({
       {/* Available state */}
       <div className="sm-seat-inner" />
       <div className="sm-seat-outline">
-        <img src={seat.type === 'premium' ? seatOutlinePremium : seatOutline} alt="" aria-hidden="true" />
+        <img src={seatOutline} alt="" aria-hidden="true" />
       </div>
       {seat.type === 'panorama' && (
         <div className="sm-seat-icon">
@@ -170,7 +166,7 @@ function SeatButton({
       )}
       {seat.type === 'premium' && (
         <div className="sm-seat-icon">
-          <img src={iconDiamondDark} alt="" aria-hidden="true" />
+          <img src={iconDiamondCanvas} alt="" aria-hidden="true" />
         </div>
       )}
 
@@ -252,26 +248,16 @@ function BusCanvas({
           </div>
         ))}
 
-        {/* Premium Zone badge + description (upper deck) */}
-        {deck.premiumZoneDividerSlot !== undefined && (
-          <>
-            <div className="sm-premium-badge" style={{ top: sy - 60 }}>
-              <Tag extraClasses="sm-pz-pill">
-                <img src={iconDiamondLight} width={24} height={24} alt="" aria-hidden="true" className="sm-pz-pill-icon" />
-                Premium Zone
-              </Tag>
-            </div>
-            <p className="sm-premium-desc" style={{ top: sy - 24 }}>
-              Comfort | faster Wi-Fi | priority boarding
-            </p>
-          </>
-        )}
-
-        {/* Premium Zone divider — 6px after last premium row, 6px before first classic row */}
+        {/* Premium Zone grey area — 10px beyond seat columns on each side, 12px above/below rows */}
         {deck.premiumZoneDividerSlot !== undefined && (
           <div
-            className="sm-premium-divider"
-            style={{ top: sy + deck.premiumZoneDividerSlot * SEAT_SIZE + 6 }}
+            className="sm-premium-zone-bg"
+            style={{
+              top: sy - 12,
+              height: deck.premiumZoneDividerSlot * SEAT_SIZE + 24,
+              left: COL_X.LEFT - 10,
+              right: CANVAS_WIDTH - (COL_X.RIGHT_B + SEAT_SIZE) - 10,
+            }}
           />
         )}
 
@@ -291,7 +277,8 @@ function BusCanvas({
           const height = (special.heightSlots ?? 1) * SEAT_SIZE;
           const top = slotY(deck, special.slot);
           const isLeft = special.side === 'left';
-          const left = isLeft ? COL_X.A : COL_X.C;
+          const left = isLeft ? COL_X.LEFT : COL_X.RIGHT_A;
+          const width = isLeft ? SEAT_SIZE : (COL_X.RIGHT_B + SEAT_SIZE - COL_X.RIGHT_A);
           const iconSrc =
             special.type === 'toilet'
               ? toiletIcon
@@ -304,7 +291,7 @@ function BusCanvas({
               <div
                 key={i}
                 className="sm-toilet"
-                style={{ left, top, height }}
+                style={{ left, top, height, width }}
               >
                 <img src={iconSrc} alt="Toilet" />
               </div>
@@ -315,7 +302,7 @@ function BusCanvas({
             <div
               key={i}
               className="sm-stairs"
-              style={{ left, top, height }}
+              style={{ left, top, height, width }}
               aria-label="Stairs"
             >
               <img src={iconSrc} alt="" aria-hidden="true" />
@@ -334,10 +321,10 @@ function BusCanvas({
           />
         ))}
 
-        {/* Column header labels (A / B / C / D) — space above first seat row */}
+        {/* Column header labels (A / B / C) — space above first seat row */}
         {deck.id === 'lower' && (
           <>
-            {(['A', 'B', 'C', 'D'] as const).map((col) => (
+            {(['LEFT', 'RIGHT_A', 'RIGHT_B'] as const).map((col, i) => (
               <div
                 key={col}
                 style={{
@@ -352,7 +339,7 @@ function BusCanvas({
                   pointerEvents: 'none',
                 }}
               >
-                {col}
+                {['A', 'B', 'C'][i]}
               </div>
             ))}
           </>
@@ -472,39 +459,33 @@ export function SeatMap({ active, onClose }: SeatMapProps) {
                 <span className="sm-legend-price">+ 2,99 €</span>
               </div>
             </div>
-            {activeDeck === 'lower' && (
-              <>
-                <div className="sm-legend-item">
-                  <div className="sm-legend-icon">
-                    <img src={iconSeatFront} alt="" aria-hidden="true" />
-                  </div>
-                  <div className="sm-legend-label">
-                    <span className="sm-legend-name">Front</span>
-                    <span className="sm-legend-price">+ 4,49 €</span>
-                  </div>
-                </div>
-                <div className="sm-legend-item">
-                  <div className="sm-legend-icon">
-                    <img src={iconSeatPanorama} alt="" aria-hidden="true" />
-                  </div>
-                  <div className="sm-legend-label">
-                    <span className="sm-legend-name">Panorama</span>
-                    <span className="sm-legend-price">+ 5,99 €</span>
-                  </div>
-                </div>
-              </>
-            )}
-            {activeDeck === 'upper' && (
-              <div className="sm-legend-item">
-                <div className="sm-legend-icon">
-                  <img src={iconSeatPremium} alt="" aria-hidden="true" />
-                </div>
-                <div className="sm-legend-label">
-                  <span className="sm-legend-name">Premium</span>
-                  <span className="sm-legend-price">+ 8,49 €</span>
-                </div>
+            <div className="sm-legend-item">
+              <div className="sm-legend-icon">
+                <img src={iconSeatFront} alt="" aria-hidden="true" />
               </div>
-            )}
+              <div className="sm-legend-label">
+                <span className="sm-legend-name">Front</span>
+                <span className="sm-legend-price">+ 3,59 €</span>
+              </div>
+            </div>
+            <div className="sm-legend-item">
+              <div className="sm-legend-icon">
+                <img src={iconSeatPanorama} alt="" aria-hidden="true" />
+              </div>
+              <div className="sm-legend-label">
+                <span className="sm-legend-name">Panorama</span>
+                <span className="sm-legend-price">+ 5,99 €</span>
+              </div>
+            </div>
+            <div className="sm-legend-item">
+              <div className="sm-legend-icon">
+                <img src={iconSeatDiamond} alt="" aria-hidden="true" />
+              </div>
+              <div className="sm-legend-label">
+                <span className="sm-legend-name">Premium</span>
+                <span className="sm-legend-price">+ 8,49 €</span>
+              </div>
+            </div>
           </div>
         </button>
 
@@ -567,83 +548,62 @@ export function SeatMap({ active, onClose }: SeatMapProps) {
       </PanelHeader>
       <PanelContent extraClasses="sm-legend-detail-content">
         <div className="sm-cat-list">
-          {activeDeck === 'lower' ? (
-            <>
-              <div className="sm-cat-card">
-                <div className="sm-cat-photo-wrap">
-                  <img src={photoSeatPanorama} alt="" aria-hidden="true" />
+          <div className="sm-cat-card">
+            <div className="sm-cat-photo-wrap">
+              <img src={photoSeatPremiumZone} alt="" aria-hidden="true" />
+            </div>
+            <div className="sm-cat-body">
+              <div className="sm-cat-info">
+                <div className="sm-cat-title-row">
+                  <span className="sm-cat-name">Premium Zone</span>
+                  <span className="sm-cat-price">+ 8,49 €</span>
                 </div>
-                <div className="sm-cat-body">
-                  <div className="sm-cat-info">
-                    <div className="sm-cat-title-row">
-                      <span className="sm-cat-name">Panorama</span>
-                      <span className="sm-cat-price">+ 5,99 €</span>
-                    </div>
-                    <p className="sm-cat-desc">Enjoy a great view in the first row.</p>
-                  </div>
-                </div>
+                <p className="sm-cat-desc">More privacy, more comfortable seats, better Wi-Fi and priority boarding.</p>
               </div>
-              <div className="sm-cat-card">
-                <div className="sm-cat-photo-wrap">
-                  <img src={photoSeatFront} alt="" aria-hidden="true" />
+            </div>
+          </div>
+          <div className="sm-cat-card">
+            <div className="sm-cat-photo-wrap">
+              <img src={photoSeatPanorama} alt="" aria-hidden="true" />
+            </div>
+            <div className="sm-cat-body">
+              <div className="sm-cat-info">
+                <div className="sm-cat-title-row">
+                  <span className="sm-cat-name">Panorama</span>
+                  <span className="sm-cat-price">+ 5,99 €</span>
                 </div>
-                <div className="sm-cat-body">
-                  <div className="sm-cat-info">
-                    <div className="sm-cat-title-row">
-                      <span className="sm-cat-name">Front</span>
-                      <span className="sm-cat-price">+ 4,49 €</span>
-                    </div>
-                    <p className="sm-cat-desc">Enjoy a smooth, quiet trip at the front of the bus.</p>
-                  </div>
-                </div>
+                <p className="sm-cat-desc">Enjoy a great view in the first row.</p>
               </div>
-              <div className="sm-cat-card">
-                <div className="sm-cat-photo-wrap">
-                  <img src={photoSeatClassic} alt="" aria-hidden="true" />
+            </div>
+          </div>
+          <div className="sm-cat-card">
+            <div className="sm-cat-photo-wrap">
+              <img src={photoSeatFront} alt="" aria-hidden="true" />
+            </div>
+            <div className="sm-cat-body">
+              <div className="sm-cat-info">
+                <div className="sm-cat-title-row">
+                  <span className="sm-cat-name">Front</span>
+                  <span className="sm-cat-price">+ 3,59 €</span>
                 </div>
-                <div className="sm-cat-body">
-                  <div className="sm-cat-info">
-                    <div className="sm-cat-title-row">
-                      <span className="sm-cat-name">Classic</span>
-                      <span className="sm-cat-price">+ 2,99 €</span>
-                    </div>
-                    <p className="sm-cat-desc">Decide whether you want a window or an aisle seat.</p>
-                  </div>
-                </div>
+                <p className="sm-cat-desc">Enjoy a smooth, quiet trip at the front of the bus.</p>
               </div>
-            </>
-          ) : (
-            <>
-              <div className="sm-cat-card">
-                <div className="sm-cat-photo-wrap">
-                  <img src={photoSeatPremiumZone} alt="" aria-hidden="true" />
+            </div>
+          </div>
+          <div className="sm-cat-card">
+            <div className="sm-cat-photo-wrap">
+              <img src={photoSeatClassic} alt="" aria-hidden="true" />
+            </div>
+            <div className="sm-cat-body">
+              <div className="sm-cat-info">
+                <div className="sm-cat-title-row">
+                  <span className="sm-cat-name">Classic</span>
+                  <span className="sm-cat-price">+ 2,99 €</span>
                 </div>
-                <div className="sm-cat-body">
-                  <div className="sm-cat-info">
-                    <div className="sm-cat-title-row">
-                      <span className="sm-cat-name">Premium Zone</span>
-                      <span className="sm-cat-price">+ 8,49 €</span>
-                    </div>
-                    <p className="sm-cat-desc">More privacy, comfortable seats, faster Wi-Fi and priority boarding.</p>
-                  </div>
-                </div>
+                <p className="sm-cat-desc">Decide whether you want a window or an aisle seat.</p>
               </div>
-              <div className="sm-cat-card">
-                <div className="sm-cat-photo-wrap">
-                  <img src={photoSeatClassic} alt="" aria-hidden="true" />
-                </div>
-                <div className="sm-cat-body">
-                  <div className="sm-cat-info">
-                    <div className="sm-cat-title-row">
-                      <span className="sm-cat-name">Classic</span>
-                      <span className="sm-cat-price">+ 2,99 €</span>
-                    </div>
-                    <p className="sm-cat-desc">Decide whether you want a window or an aisle seat.</p>
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
+            </div>
+          </div>
         </div>
       </PanelContent>
     </Panel>

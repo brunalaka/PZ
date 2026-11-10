@@ -13,6 +13,10 @@ import { CheckoutExplorationBase } from './prototypes/CheckoutExploration/base';
 import { CheckoutExplorationAirbnb } from './prototypes/CheckoutExploration/airbnb';
 import { SeatsBasePrototype } from './prototypes/Seats base/SeatsBasePrototype';
 import { SeatPremiumZone } from './prototypes/Seat_Premium_Zone/SeatPremiumZone';
+import { SeatPremiumZone as SeatPZOption1 } from './prototypes/Seat_PZ_Option1/SeatPremiumZone';
+import { SeatPremiumZone as SeatPZOption2 } from './prototypes/Seat_PZ_Option2/SeatPremiumZone';
+import { SeatPremiumZone as SeatPZOption4 } from './prototypes/Seat_PZ_Option4/SeatPremiumZone';
+import { SeatPremiumZone as SeatPZOption5 } from './prototypes/Seat_PZ_Option5/SeatPremiumZone';
 
 import '@flixbus/honeycomb/dist/css/honeycomb-fonts.css';
 import './App.css';
@@ -33,6 +37,15 @@ const App = () => (
         <Route path="/checkout-exploration/airbnb" element={<CheckoutExplorationAirbnb />} />
         <Route path="/seats-base" element={<SeatsBasePrototype />} />
         <Route path="/seat-premium-zone" element={<SeatPremiumZone />} />
+        <Route path="/seat-premium-zone/seatmap" element={<SeatPremiumZone defaultSeatMapOpen />} />
+        <Route path="/seat-pz-1" element={<SeatPZOption1 />} />
+        <Route path="/seat-pz-1/seatmap" element={<SeatPZOption1 defaultSeatMapOpen />} />
+        <Route path="/seat-pz-2" element={<SeatPZOption2 />} />
+        <Route path="/seat-pz-2/seatmap" element={<SeatPZOption2 defaultSeatMapOpen />} />
+        <Route path="/seat-pz-4" element={<SeatPZOption4 />} />
+        <Route path="/seat-pz-4/seatmap" element={<SeatPZOption4 defaultSeatMapOpen />} />
+        <Route path="/seat-pz-5" element={<SeatPZOption5 />} />
+        <Route path="/seat-pz-5/seatmap" element={<SeatPZOption5 defaultSeatMapOpen />} />
       </Routes>
     </BrowserRouter>
   </ThemeWrapper>

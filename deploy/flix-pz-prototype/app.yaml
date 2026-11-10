@@ -1,0 +1,18 @@
+# Roles reach the app as the X-Forwarded-Groups header (comma-separated).
+# Check them on the server, never in browser JS; send admin content to admins only.
+# Users by email; groups: Entra security groups.
+apiVersion: kratix.sparc/v1alpha1
+kind: App
+metadata:
+  annotations:
+    maintainer: bruna.lacorte@flix.com
+  name: flix-pz-prototype
+  namespace: kratix-requests
+spec:
+  port: 8080
+  rbac:
+    roles:
+    - groups:
+      - Flix Team AAD
+      name: viewer
+  runtime: generic

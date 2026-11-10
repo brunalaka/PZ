@@ -1,0 +1,142 @@
+OPTION 2: USABILITY ASSESSMENT
+Test: 4f3fa688 | 8 sessions, P4 excluded (2-minute session, insufficient data) | 7 participants
+(P1, P6, P7, P9, P10, P11, P12) | Unmoderated
+
+Option 2 distinctive features from transcripts: results page "New Premium Zone" banner, seat category
+pill/tag labels at the top of the seat map (each tappable for a description), seat types Classic / Front
+/ Panorama / Premium / Premium Single (the single-occupancy premium seat is unique to Option 2).
+
+
+FLAGS (check recordings before treating as complete)
+
+- P9, Tasks 5 and 6 (most important): P9 rated noticing as "very easy" in Task 5, but in Task 6 said
+  "I'm so sure it didn't do that the first time, I just thought I would tap the seat I wanted."
+  The Task 5 response may refer to noticing the pill labels themselves, not realising they were tappable
+  for detailed information. Worth checking to understand what P9 meant.
+
+- P10, Task 4: No audio captured during the emotional reaction question. Emotion is unresolved.
+  Marked as "not clearly stated" in the analysis.
+
+- P7, Task 5: No audio captured. P7 is excluded from the noticeability count.
+
+- P11, Tasks 6 and 7: No audio captured for either. P11's understanding rating and improvement
+  suggestions are missing. Understanding was inferred from Task 2/3 context (position-only
+  interpretation).
+
+
+TASK 1: Trip comparison (results page)
+
+EASE: 5 of 7 mentioned Premium Zone on first impression.
+
+P11 read the banner and immediately filtered for premium-zone trips. P1 read the full expanded banner:
+"First with comfort and privacy, a little more personal space." P12 explored the seat options directly
+from the results card: "Oh wow, what's that? More privacy, more comfortable seats. Yeah, I like the idea
+of that one." P9 noticed the banner and specifically wanted images alongside it. P7 casually noted
+"premiums" while comparing trips. P6 and P10 did not call out Premium Zone during Task 1.
+
+
+TASK 2: Seat selection (evaluative)
+
+EASE: 4 of 7 were drawn to Premium Single spontaneously.
+
+The "no one sitting next to me" framing resonated immediately. P12: "I like the idea of being in slight
+isolation." P6: "definitely going for one of the singles if I'm travelling by myself." P9: "I really,
+really like this one here." P10 also gravitated toward it. This landed clearly even before participants
+had read the descriptions.
+
+DIFFICULTY: 4 of 7. Tapping a seat vs tapping the category pill takes you to different places, and most
+tapped the seat.
+
+Option 2 has two interactive surfaces: the category pill at the top (shows description) and the
+individual seats on the map (goes straight to seat selection). Multiple participants tapped seats rather
+than pills and bypassed the benefit information entirely until prompted in Task 6.
+
+P9: "When I actually tap on premium single it now brings up this. I'm so sure it didn't do that the
+first time. I just thought I would tap the seat I wanted."
+P1: "If I click on premium single, ah right, I didn't know if I clicked on it, I'd get information."
+P7: "I really had to click on the premium bit to see it."
+
+P12 was the only participant who had actively tapped the category pills from Task 1. P1, P9, and P7
+only discovered the pill detail panel between Tasks 3 and 6.
+
+DIFFICULTY: 3 of 7. Paid seating model was questioned.
+
+P1: "I thought I'd already paid for premium zone in the other section, but I'm having to pay separate
+for the seats, so I'm a bit confused." P9: "The fact that you still have to pay three euros for a
+classic is kind of strange, I thought only the upgraded options would have an additional charge." P11:
+"It's a bit cheeky asking people to pay extra on a bus."
+
+
+TASK 3: Understanding of Premium options
+
+P1 and P12, who had read the full banner or pill details, described the offer accurately (space, privacy,
+wifi, priority boarding, single-occupancy distinction). P6 found the descriptions during Task 3: "Oh,
+and there it says more privacy, more comfortable seats." P7 saw the photo card: "Oh damn, that's a nice
+chair." P11 interpreted premium entirely as location and view: "You're sat at the front, basically
+getting the best view possible kind of above the driver." No mention of benefits beyond position. P10
+read the descriptions from the pills. P9 had explored from Task 2 and had the full picture.
+
+
+TASK 4: Emotional reaction
+
+Interested: P6, P7, P9 (3 of 7).
+Curious: P12 ("They got me thinking, I like the idea. I do really like the idea of no one next to me").
+Indifferent: P11 ("If I was on the front premium row, that would make sense. But row three not so much.
+Too many rows marked as premium").
+Confused: P1 ("I am a bit confused because I thought I'd already paid for premium").
+Not clearly stated: P10.
+
+
+TASKS 5/6: Noticeability and understandability
+
+Noticeability (Task 5):
+Easy: P11, P1, P12, P6, P9 all rated noticing as easy or very easy. No data for P7. P10 said "It was
+that obvious to start with," which in context reads as "it wasn't immediately obvious," consistent with
+their broader comments.
+
+Understanding (Task 6):
+P12 found it easy (had explored from Task 1). P7 rated it "very, very easy" (had found the photo card
+in Task 3). P1 and P9 discovered the pill detail panel for the first time during Task 6 and their
+understanding improved significantly afterwards. P10 said understanding was not initially clear. P6
+understood the basics but remained sceptical about the wifi claim: "I'm not sure you can single out
+seats to get worse wifi connections."
+
+
+TASK 7: What could make the Premium options easier to understand
+
+Three participants converged on the same solution: make it obvious that tapping the pill reveals
+information.
+
+P1: "Definitely have an eye link on each one. People know then to click on it and get the information,
+because I thought there was no information at all."
+P7: "They should let you tap on something that takes you straight to this screen. Because no one's
+really gonna tap on these."
+P9: "As soon as you select a seat it should automatically pop up that comparison and show you all the
+different seating options, just to make sure you are definitely making an informed choice."
+
+P11 felt no change was needed: "It is what it is. You're not getting extra. You're just getting that
+seat." (Consistent with their position-only interpretation of premium.)
+
+Additional suggestion from P9: reviews or ratings from real people who have travelled on that specific
+seat type (single voice, not a pattern).
+
+
+CONCLUSION
+
+  Mentioned Premium Zone during trip comparison:
+  5 of 7.
+
+  Discovered they could see more details about each seat category:
+  5 of 7 found the pill detail panel (P12 in Task 1, P6 and P7 in Task 3, P1 and P9 in Task 6). 2 of 7
+  relied on banner context without accessing the pills (P10, P11).
+
+  Understood Premium options as more than just a seat:
+  5 of 7. Once the pill descriptions were found, most grasped the full offer. P11 described it only as
+  location. P10 was partially clear.
+
+  Most present emotion:
+  Interested (3 of 7), with Curious adding a further 1 of 7.
+
+The Premium Single concept generated the strongest spontaneous pull of any feature across participants.
+The core discoverability issue is consistent with Options 1 and 3: the interactive affordance that
+reveals the value proposition is not visible to most participants without prompting.

@@ -1,0 +1,117 @@
+OPTION 1: USABILITY ASSESSMENT
+7 participants, unmoderated, Berlin to Hamburg seat selection flow
+
+
+FLAGS (check recordings before treating as complete)
+
+- P10, Task 4: No audio captured during emotional reaction selection.
+  P10's emotion is unresolved. Recommend checking recording at approximately 1:11.
+
+- P3, Task 3: Participant said "the titles are blocked out" when viewing the seat category panel.
+  Could be a device display issue or real text truncation in the design. Recommend checking at approximately 1:58.
+
+
+TASK 1: Trip comparison (contextual)
+
+All 7 scanned for price and journey time as their first two filters. Premium Zone acted as a
+differentiator for 3 of 7 (P2, P4, P8): all three chose a trip specifically because it carried the
+Premium Zone label, either as a tiebreaker when price was similar or as an active preference. P3
+noticed the label but said "I don't know what Premium Zone means" and considered investigating before
+booking. P1, P6, and P10 made their choices without mentioning it.
+
+When the price gap is small, the Premium Zone badge does shift some people's trip choice. For roughly
+half the group, it registered as noise at the results-list stage.
+
+
+TASK 2: Seat selection (evaluative)
+
+All 7 could identify that seat categories exist and read the legend. Icons and price differences read
+clearly. Two participants (P2, P4) went looking for Premium seats on the lower deck first, then had to
+switch to the upper deck. That is 2 of 7, below the threshold for a main finding, but a recurrent
+navigation pattern worth noting.
+
+P1's Task 2 navigation data is incomplete due to a prototype glitch mid-task. Their verbal commentary
+on the legend was usable but their path through the map was not.
+
+
+TASK 3: Premium Zone comprehension (evaluative, core)
+
+DIFFICULTY: 3 of 7.
+
+The specific benefits (privacy, comfortable seats, better wifi, priority boarding) were not apparent
+without tapping into the seat category legend panel. P4 said explicitly "I can't find anything that
+specifically describes the premium options" before eventually discovering the tappable panel. P1 didn't
+find the info at all during this task, only discovering it when prompted by Task 6. P3 reached the panel
+but could only read the description text due to a prototype issue; their comprehension data is still
+usable.
+
+What participants assumed without the info panel:
+  - P1 and P2: physical seat reasoning (upper deck, better position, single vs double arrangement)
+  - P4: guessed "more leg room"
+  - P8: described it as "between economy and business" (directionally correct, no specific benefits)
+
+P6 was the exception, having absorbed the value proposition from the results-page banner before reaching
+the seat map, and could describe wifi and priority boarding without needing the panel.
+
+Once participants found and read the legend panel, comprehension was immediate. The problem is
+discoverability, not content.
+
+
+TASK 4: Emotional reaction
+
+Interested: P1, P2, P3, P4, P6 (5 of 7).
+Curious: P8 (the small price gap triggered curiosity rather than straightforward interest).
+Indifferent: P10.
+
+
+TASK 5: Noticeability
+
+EASE: 7 of 7. Every participant spotted the Premium options quickly, either on the results page or on
+the seat map. P4 gave noticeability a 4 out of 5, but clarified their rating was about not realising the
+legend was interactive, not about seeing the options. They were spotted immediately.
+
+
+TASK 6: Understandability
+
+DIFFICULTY: 3 of 7.
+
+P1 said understanding required tapping first, and only rated it clearly after doing so. P4 gave it a 4
+because they couldn't distinguish Premium from Premium Single: "the two pictures look very, very similar,
+how is there more privacy? What aspects make it more private?" P3 found the wifi claim confusing: "how is
+the wifi better, because the wifi is located at the front of the bus? That's a little weird." P2, P6, P8,
+and P10 all rated it as easy or fairly clear.
+
+
+TASK 7: What would make it easier
+
+Two participants (P1, P4) independently suggested the legend panel needs an affordance to show it is
+tappable: "knowing that you could click on something to get that information" (P1), "it should have said
+click to view" (P4). One data point short of the 3-participant threshold, but directly tied to the core
+discoverability issue above.
+
+P8 raised the small price gap as confusing (one participant, left out of main findings). P3's wifi
+explanation query is also a single voice and left out.
+
+
+CONCLUSION
+
+  Mentioned Premium Zone during trip comparison:
+  4 of 7. P2, P4, and P8 used it as an active reason to choose a trip. P3 noticed it but said they
+  didn't know what it meant.
+
+  Discovered they could tap for more detail on each seat category:
+  3 of 7. P4 found it mid-Task 3 after searching. P3 went back to look (reached the panel with a
+  prototype limitation). P1 only found it when directly asked about understandability in Task 6. The
+  other 4 did not discover the panel at all.
+
+  Understood Premium Zone as more than just a seat category:
+  3 of 7. P2, P4, and P6 arrived at the actual value proposition (wifi, comfort, priority boarding) as
+  a zone-level experience. P8 understood it as a tier concept but not the specific benefits. P1, P3, and
+  P10 did not get there.
+
+  Most present emotion:
+  Interested (5 of 7). The response was positive where it landed, but reaching it required finding the
+  info panel, which most participants did not do unprompted.
+
+The concept is legible and appealing once found. The path to finding it is broken for the majority of
+participants.

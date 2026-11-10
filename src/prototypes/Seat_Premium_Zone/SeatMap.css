@@ -68,7 +68,7 @@
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: var(--hcr-spacing-2, 12px) 0 var(--hcr-spacing-4, 24px);
+  padding: var(--hcr-spacing-2, 12px) 0 120px;
 }
 
 /* ── Deck nav ─────────────────────────────────────────────────────────────── */
@@ -501,15 +501,18 @@
   margin: 0;
 }
 
-/* ── Premium Zone divider ─────────────────────────────────────────────────── */
-.sm-premium-divider {
+/* ── Premium Zone zone background ────────────────────────────────────────── */
+.sm-premium-zone-bg {
   position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--hcr-content-primary-color, #353535);
+  background: var(--hcr-line-secondary-color, #e1e1e1);
+  opacity: 0.5;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+.sm-seat--premium .sm-seat-inner {
+  background: transparent;
 }
 
 /* ── Special elements ─────────────────────────────────────────────────────── */
@@ -606,7 +609,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--hcr-spacing-2, 12px);
-  padding: var(--hcr-spacing-4, 24px);
+  padding: var(--hcr-spacing-4, 24px) var(--hcr-spacing-4, 24px) 120px;
 }
 
 .sm-cat-card {

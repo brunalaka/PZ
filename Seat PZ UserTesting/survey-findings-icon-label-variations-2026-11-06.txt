@@ -1,0 +1,83 @@
+SURVEY FINDINGS: ICON AND LABEL VARIATIONS FOR PREMIUM ZONE LABEL ON TRIP CARD
+4 UserTesting surveys, unmoderated
+Goal: assess whether the icon (Crown vs Diamond) or the label ("Zone" vs "Experience") — or a combination — changes overall perception and expectations of the premium offering
+
+
+VARIATIONS TESTED
+- V1: Crown icon + "Premium Zone"
+- V2: Diamond icon + "Premium Zone"
+- V3: Crown icon + "Premium Experience"
+- V4: Diamond icon + "Premium Experience"
+
+
+KEY FINDINGS
+
+1. The label matters more than the icon
+   The switch from "Zone" to "Experience" had a stronger effect on perception and expectations
+   than the switch from Crown to Diamond. Participants who saw "Experience" associated
+   it more broadly with a lifestyle or service quality, while "Zone" anchored expectations
+   to a physical area of the bus.
+
+2. "Experience" scores slightly higher overall, but creates more confusion
+   Average perceived value score: 3.75 ("Experience") vs 3.61 ("Zone").
+   However, "Experience" triggered broader — and sometimes misaligned — expectations:
+   some participants expected food, drink service, or lounge-style amenities.
+   This raised the bar for delivery and increased the risk of disappointment.
+
+3. "Zone" sets clearer, more grounded expectations
+   Participants who saw "Zone" more reliably connected the label to a physical seat
+   location (upper deck, front rows) and a defined set of seat-level benefits.
+   Fewer participants over-interpreted what was included.
+
+4. Icon had minimal standalone effect
+   Crown vs Diamond did not produce meaningfully different expectations or scores
+   within the same label group. The icon serves mainly as a visual differentiator
+   on the trip card rather than a signal about what the premium offering includes.
+
+5. Discoverability and understanding remain separate problems
+   Regardless of variation, most participants did not proactively seek out extra info.
+   Those who did find the PZ panel or seat categories panel responded positively.
+   The bigger barrier is making the entry points more obvious, not the label or icon choice.
+
+
+VARIATION BREAKDOWN
+
+V1 — Crown + "Premium Zone"
+- Perception: grounded, seat and location focused
+- Common interpretation: better seats at the front/upper deck
+- Confusion areas: some participants thought the premium zone price was included
+  in the trip fare, not an add-on
+- Notable: participants who found the seat categories panel became noticeably
+  more interested and confident in their choice
+
+V2 — Diamond + "Premium Zone"
+- Perception: similar to V1; "Zone" framing dominant over icon change
+- Notable: one participant explicitly linked it to a physical space ("so you do
+  have to pay a premium") only after seeing the seat map — the label alone
+  did not fully communicate it was an add-on cost
+
+V3 — Crown + "Premium Experience"
+- Perception: more experiential, some food/drink associations
+- Higher score but with wider variance
+- Notable: participants more likely to feel let down when they arrived at a
+  seat selection screen rather than a service-level upgrade page
+
+V4 — Diamond + "Premium Experience"
+- Perception: similar to V3; broader experiential expectations
+- Notable: the combination produced the highest initial interest but also
+  the most misaligned mental models about what was actually included
+
+
+RECOMMENDATIONS
+
+Prefer "Zone" over "Experience" if the premium offering is seat-focused.
+The label sets more accurate expectations and reduces disappointment risk.
+
+If "Experience" is chosen, the information architecture needs to work harder:
+- Make the PZ panel or seat categories panel more discoverable at the results stage
+- Surface a brief summary (e.g. 2-3 bullet features) earlier in the flow,
+  before the user reaches the seat map
+- Manage expectations explicitly: clarify it is a seat upgrade, not a service upgrade
+
+The icon can be chosen on visual/brand grounds — it does not carry enough
+semantic weight to change user expectations on its own.

@@ -1,0 +1,428 @@
+ANNOTATIONS: ALL OPTIONS (V1-V5)
+Recovered from Confluence page 3505455177
+33 valid participants across 5 options
+
+
+EXCLUDED PARTICIPANTS
+- Opt1 P10: User excluded - didn't share thoughts or perform tasks
+- Opt2 P6:  User excluded - rushed through tasks
+- Opt2 P10: User excluded - audio is bad
+
+
+VALID PARTICIPANTS PER OPTION
+- Option 1: P1, P2, P3, P4, P6, P8  (6 participants, P10 excluded)
+- Option 2: P1, P4, P7, P9, P11, P12  (6 participants, P6 and P10 excluded)
+- Option 3: P2, P5, P6, P7, P8, P9, P11  (7 participants)
+- Option 4: P2, P3, P4, P5, P6, P7, P8  (7 participants)
+- Option 5: P2, P3, P4, P5, P10, P11, P12  (7 participants)
+
+
+=============================================================================
+PREMIUM ZONE BANNER
+(Not present in Option 4)
+=============================================================================
+
+Option 1
+- P1 - didn't mention Premium Zone (didn't notice banner or label on trip card or PZ panel)
+- P2 - reads the banner, doesn't comment on it
+- P3 - didn't notice
+- P4 - noticed and understood
+- P6 - didn't mention it at first, but when asked about premium came back to homepage and clicked the banner, suggesting he noticed it before
+- P8 - didn't mention it
+
+Option 2
+- P1 - noticed it, didn't comment on it
+- P4 - didn't notice
+- P7 - didn't mention it
+- P9 - noticed and reads it, then clicked it
+- P11 - noticed and read it, didn't comment
+- P12 - didn't mention it
+
+Option 3
+- P2 - didn't mention it
+- P5 - didn't mention it at first, after viewing the label on the card moved up to find the banner and read it
+- P6 - didn't mention it at first, only noticed it by the end of the test because went back looking for more info
+- P7 - noticed and clicked
+- P8 - didn't mention it at first
+- P9 - noticed and read it
+- P11 - noticed it, read it
+
+Option 5
+- P2 - wasn't noticed
+- P3 - wasn't noticed
+- P4 - wasn't noticed
+- P5 - wasn't noticed
+- P10 - wasn't noticed
+- P11 - wasn't noticed
+- P12 - noticed and clicked to know more
+
+
+=============================================================================
+PREMIUM ZONE LABEL ON TRIP CARD
+=============================================================================
+
+Option 1
+- P1 - didn't notice label on trip card
+- P2 - noticed the label (thought at first that only these trips would have wifi, then noticed the wi-fi icon on other trips as well; was willing to select a premium zone trip; maybe thought the price is for the premium zone)
+- P3 - did notice but didn't understand - "Don't know what premium zone means."
+- P4 - noticed it - "I like the fact that this is in the premium zone." Maybe thought the price was for the premium zone. "Shortest journey, cheapest price, premium zone. It's a more comfortable journey and a much better wifi."
+- P6 - notices it, doesn't comment on it
+- P8 - noticed it and selected the trip with premium zone because he thought the price was for the premium zone. "I think I'm gonna go for the premium zone 'cause there's not much difference between that and other zones."
+
+Option 2
+- P1 - noticed it and clicked to know more; selected a trip thinking the price included premium zone - "So getting up and getting the 10:15 is fine and it's a premium zone, so that'll be comfortable."
+- P4 - didn't notice
+- P7 - "I'm gonna choose the 10:15 Berlin Central to Hamburg's because it's still premiums and it's like 50p more expensive." - thinks the premium zone is included in the price
+- P9 - noticed it; thought the premium zone was included in the price at first; then clicked and saw the seat map and understood he had to pay extra "so you do have to pay a premium"
+- P11 - didn't notice it
+- P12 - noticed it and clicked the trip with it; checked the seatmap
+
+Option 3
+- P2 - didn't mention it
+- P5 - noticed it. "I don't understand what premium zone means." Then moved up and saw the banner.
+- P6 - didn't mention it
+- P7 - noticed it. "the 10:15 seems to suggest that that's premium zone." Clicked the card and went to the seatmap.
+- P8 - didn't mention it at first
+- P9 - didn't notice it
+- P11 - didn't notice it
+
+Option 4
+- P2 - didn't mention premium zone when checking trip options
+- P3 - didn't mention premium zone when checking trip options
+- P4 - noticed and clicked to know more; just read, didn't comment; but then picked a trip because it had premium zone - "I would go for one where I could probably add premium zone seating 'cause that sounds like that would be a much more comfortable trip"
+- P5 - didn't mention premium zone when checking trip options
+- P6 - noticed it, didn't click; thinks only about the seat features - "I can add premium zone seating. I'm not sure what that means, but it's probably not necessary as I'm actually quite a short person."
+- P7 - didn't mention premium zone when checking trip options
+- P8 - didn't mention premium zone when checking trip options
+
+Option 5
+- P2 - noticed that some trips had premium zone and clicked to see more. "a couple of them have a premium zone here as well. Uh, better comfort, better wifi, priority boarding, which I wouldn't be too bothered about really."
+- P3 - wasn't noticed
+- P4 - wasn't noticed
+- P5 - wasn't noticed
+- P10 - wasn't noticed
+- P11 - wasn't noticed
+- P12 - wasn't noticed
+
+
+=============================================================================
+PREMIUM ZONE PANEL
+=============================================================================
+
+Option 1
+- P1 - didn't notice the Premium Zone panel
+- P2 - didn't notice the Premium Zone panel
+- P3 - didn't notice the Premium Zone panel
+- P4 - didn't notice the Premium Zone panel
+- P6 - didn't notice at first, but when asked about premium came back to the homepage and clicked the banner to see more details here; understood what he saw
+- P8 - didn't get here
+
+Option 2
+- P1 - opened it and read the info "so it's more comfortable. Wifi, priority boarding, privacy, personal space."
+- P4 - didn't get here
+- P7 - didn't get here
+- P9 - opened and read it shortly
+- P11 - didn't get here
+- P12 - didn't get here (not noted)
+
+Option 3
+- P2 - didn't get here
+- P5 - didn't get here
+- P6 - didn't get here at first; only noticed it by the end of the test because went back to search page looking for more info and clicked the banner
+- P7 - read the info "I am immediately interested in the premium zone. Comfort, better wifi, priority building. Looks nice"
+- P8 - didn't get here
+- P9 - didn't get here
+- P11 - didn't get here
+
+Option 4
+- P2 - didn't get here
+- P3 - didn't get here
+- P4 - came here with ease and it helped her understand and get interested
+- P5 - didn't get here
+- P6 - didn't get here
+- P7 - didn't get here
+- P8 - didn't get here
+
+Option 5
+- P2 - discovered with ease by clicking the premium zone label on trip card
+- P3 - didn't get here
+- P4 - didn't get here
+- P5 - didn't get here
+- P10 - didn't get here
+- P11 - didn't get here
+- P12 - read and seemed to understand
+
+
+=============================================================================
+SEAT MAP AND SEAT LEGEND
+=============================================================================
+
+Option 1
+- P1 - didn't click the legend. "maybe the better seats at the front, more room, maybe more comfier seats even just probably in a better position."
+- P2 - wanted to select a premium single; clicked the legend probably because he wanted to select it and saw the categories panel; after checking the panel, came back to the seatmap and couldn't find the premium single seats - ended up selecting the single seat at the lower back thinking it was what he wanted (eventually found it but it was not easy for him to know they would be on upper deck)
+- P3 - noticed the options with ease, knew the website from before
+- P4 - selected the trip because of premium zone and selected a front seat (maybe didn't understand the concept that well). "I don't wanna go for the premium singles and other ones because it's too expensive." When asked to describe, said the premium seats had "better standard of seating", didn't mention the wi-fi anymore.
+- P6 - notices and scrolled, didn't click the legend
+- P8 - "I think I made the right decision going for the premium ones 'cause they're reasonably priced and obviously a lot better than the classic, the front and the panorama." "So the premium options sit right in the middle. They're not on the economy side, but they're not on the business executive side." - unclear if he actually understood.
+
+Option 2
+- P1 - "I thought I'd already paid for premium, premium zone in the other section, but I'm having to pay separate for the seats, so I'm a bit confused with that." "So I need to know a little bit about each seat." Had to rely on memory: "It says on the previous page you get more space, you get privacy, you get wifi, and the premium single you can sit on your own. So I think that's the difference."
+- P4 - noticed the premium, clicked to view the legend (unclear if he clicked to select the premium or to view more info, closed it right away); selected a front seat thinking he was selecting a premium one - didn't notice there was an upper deck
+- P7 - didn't mention premium at first; clicked the legend only after a while
+- P9 - "I like the idea of being on the upper deck, at the front as well, which is kind of nice to get that, that view. You don't have anyone sat directly next to you." (highlighted seat features, not the experience) Later remembered but not super sure: "You also get access to other things as well, like a premium experience, something to do with wifi. I am not sure if that was included in the others as well."
+- P11 - didn't get here (noted in seat categories)
+- P12 - mentions it costs nothing but it's a prototype bug, not relevant. "premium single is very attractive to me. I like the idea of that." Understood what's offered: "This premium 10,99 for better wifi and priority boarding. Both quite important things to me."
+
+Option 3
+- P2 - can't find the premium on the seat map, didn't notice the upper deck; found it later; thinks it provides a nicer view, couldn't find more info; only later found the seat category panel by chance, then understood
+- P5 - "From what I read on there, the premium zone is that you get better wifi. So you're getting priority boarding and premium wifi." Didn't explore the seatmap much, was focused on selecting a non-cost seat. Had to go back to read the info on the previous page again.
+- P6 - noticed the options, but didn't comment on them and didn't click the legend; when asked about premium, said "you're gonna get a better seat quality and a better view I would assume"
+- P7 - didn't notice the upper deck at first and started looking for premium seats; struggled for a while, then found upper deck and the premium seats
+- P8 - noticed the options, didn't click the legend, didn't notice the upper deck; when asked about premium, started guessing: "I am expecting the premium zone to be the first class section of the bus. It should have a lot more leg space. It should have a quiet area to work, a good table, comfortably seat."
+- P9 - didn't notice the upper deck at first and thought premium was not available; didn't click the legend; didn't get to any extra info, so when asked started guessing: "I would say it's gonna be at the back where it's more spacious I suppose. You're probably gonna have probably all the features of like more space and also probably gonna have a panoramic roof at the top as well."
+- P11 - "So the premium seats are upper deck towards the front." Didn't click the legend. Relied on memory based on the banner: "I think premium zone referred to a better seating. The seat was slightly better, the wifi was better, sort of comfort levels."
+
+Option 4
+- P2 - didn't have any problems with the seatmap
+- P3 - couldn't find the premium options at first "Can't see any premiums." Took some time to discover the upper deck.
+- P4 - was trying to find the premium seats, scrolled up and down; clicked the legend but it opened the panel instead; later found the upper deck
+- P5 - didn't discover more info about the premium so focused only on seat attributes. "I quite like the option of an upper deck just for where you can just have views really. I don't think I'd be willing to pay more to sit to the front." "I'd expect a little bit of a, maybe a nicer seat, more leg room."
+- P6 - didn't have difficulties with the seatmap
+- P7 - didn't have difficulties with the seatmap; didn't discover more info so focused on seat attributes: "The premium options were near the front basically, would have a better view." "I don't know if there would be more service options, like better choices or something like that. I think that's unlikely with a bus."
+- P8 - didn't have problems with the seatmap; didn't find extra info so focused on seat features: "the premium options mean that you get a nicer view. That's all I can see."
+
+Option 5
+- P2 - noticed the seat options, clicked the legend with ease to know more info
+- P3 - "for me it's unnecessary to pay a premium" "I really don't know what premium means. Probably is it more comfortable?" Didn't reach any extra info for more context.
+- P4 - checked the seat options, didn't click to view more info; when asked thought only about the view: "all you're getting is a view."
+- P5 - clicked the legend and immediately closed the panel, didn't check it out. "I'll expect it to, to be comfortable, such as leg room, better than just sitting positions."
+- P10 - didn't notice the premium at first because it was not shown on lower deck; then when asked about premium discovered the upper deck and the seat category panel
+- P11 - described the premium with seat features; couldn't find more information
+- P12 - wanted premium and clicked the legend to know more
+
+
+=============================================================================
+SEAT CATEGORIES PANEL
+=============================================================================
+
+Option 1
+- P1 - noticed only after being prompted and searching for a while; it's clear when she sees it
+- P2 - clicked the legend probably because he wanted to select it and saw the categories panel; didn't comment on it
+- P3 - clicked the legend (knew Flix website from before), seemed excited: "ooh, those are nice bucket seats. I would probably be tempted to choose those."
+- P4 - "I can't find anything that specifically describes the premium options" - after a while he found it. After reading, chose panorama. "I'm very interested now I've found out where to find the information about each of the premium option seats and the views that you can get by the photos and the images that it shows you what you can expect to see from your seat." Thought all seat options were part of the premium zone trip. "but the one with better wifi and a more comfortable seat and a panoramic view seems quite interesting to me."
+- P6 - didn't get here
+- P8 - clicked and explored
+
+Option 2
+- P1 - didn't discover the panel at first. "So I'd like to know a bit more about the difference between the panorama premium premium single." Only after a long time, and being prompted, discovered the panel.
+- P4 - clicked but didn't explore much. "So what would you expect the you, you expect? Comfortability in the premium."
+- P7 - seems to understand. "I don't really spend on unnecessary things like that."
+- P9 - didn't get here, missed picture and more info; discovered only at the very end
+- P11 - didn't get here
+- P12 - opened it and explored the options
+
+Option 3
+- P2 - didn't get here at first, found it later by chance and was surprised
+- P5 - didn't discover that
+- P6 - didn't discover that
+- P7 - discovered by chance, was surprised: "I didn't realize that if I clicked the seats at the top would show me the seat." "It seems odd that the premium seats upstairs are all the same price. It feels like the ones at the front are almost premium panorama, so I maybe would expect to pay more for those." "So from my premium zone, I expected to get a nice seat with improved wifi, speedy boarding and, oh, I can't remember what the other one was."
+- P8 - didn't discover that
+- P9 - didn't discover that; only by the end of the test, by chance, and was surprised
+- P11 - didn't discover that
+
+Option 4
+- P2 - discovered with ease. "the premium options include being closer to the front, having a single seat and having more leg room." (even though she read the content, only thought about the seat features - missed wi-fi and boarding)
+- P3 - discovered by chance and was surprised. "doesn't really say what extra you, oh, premium. Here we go." Read the content but didn't comment.
+- P4 - came here by chance; explored all options. "I would expect to get extra leg room more privacy, why wifi, what else did it say?" "I'd expect it to just feel a little bit more luxurious than the other seats."
+- P5 - didn't get here at first, only much later in the test
+- P6 - clicked here from the beginning but seemed surprised: "oh, and I see if you click on the seat categories, it actually brings up pictures of the seats." "So yeah, actually the premium single does look really nice. I actually think I would maybe book that if it was available." Having more context and a nice picture made her interested. "They are premium and premium single, they are upstairs. It says comfort better wifi, and priority boarding." Skeptical about wi-fi: "I don't know why it's better wifi. It's not really clear how they would make that work."
+- P7 - didn't get here
+- P8 - didn't get here
+
+Option 5
+- P2 - checking the panel gave her more understanding of what each seat offers. "they're all fairly easy to understand. Nothing confusing there to be honest." "premium single is a seat on its own, you get more comfortable seats and better wifi and priority boarding. And then premium is the same basically, but a seat in like a two maybe."
+- P3 - didn't get here
+- P4 - didn't get here at first, only by the end of the test
+- P5 - clicked and closed it without exploring
+- P10 - once he got here, it was easy to understand: "If you click on premium, you get privacy more comfortable, seats better, all in about wifi priority onboarding. So you get all those key features for the premium."
+- P11 - didn't get here
+- P12 - noticed the wi-fi, privacy and boarding. "Sometimes when you've got like giddy kids, you know, they're a bit noisier and, um, I suppose the only thing I would question is whether booking those would be a, um, a disadvantage to other people who want to be a bit a bit quieter."
+
+
+=============================================================================
+HOW THEY FEEL ABOUT THE PREMIUM OPTIONS
+=============================================================================
+
+Option 1
+- P1 - Interested (but I would want to know why they are better)
+- P2 - Interested
+- P3 - Interested
+- P4 - Interested
+- P6 - Interested
+- P8 - Curious
+
+Option 2
+- P1 - Confused. "I thought I'd already paid for premium on the previous page and it's not saying what's available for the premium seats." After finding the panel with difficulties: "so now I'm not confused. I would definitely choose if it's on my own, a premium single and if I wasn't on my own, I was less than one premium because you get all those extras."
+- P4 - Interested
+- P7 - Interested (although said he doesn't like spending money on things like this)
+- P9 - Interested
+- P11 - (not noted)
+- P12 - Curious
+
+Option 3
+- P2 - Indifferent. "I'm not sure whether I really want to go for that."
+- P5 - Interested. "premium wifi would be a lot better, but obviously it doesn't state how good it actually is."
+- P6 - Confused. "'cause I'm not too sure what's really included in it"
+- P7 - Interested
+- P8 - "I feel skeptical because I don't understand what it entail in the premium seats."
+- P9 - Skeptical. " I feel quite curious because there's no actual clear picture of like where it's gonna be." (didn't discover any extra info)
+- P11 - Interested. "more based on the comfort of the premium seat and the location." "what I probably would struggle for, it mentioned that the premium services have, you know, better wifi, but on a bus there's not a massive difference there in terms of location."
+
+Option 4
+- P2 - Curious
+- P3 - Indifferent
+- P4 - Interested
+- P5 - Indifferent. "I don't see it being that luxurious to make me pay more."
+- P6 - Curious
+- P7 - Interested. "they would make the journey more enjoyable if you're gonna be on the bus for three hours."
+- P8 - Indifferent
+
+Option 5
+- P2 - Interested. "I'd feel positive about them."
+- P3 - Indifferent
+- P4 - Indifferent
+- P5 - Interested. "I would have liked a more detailed description about it, that will make it easy for me to understand."
+- P10 - Interested. "you know, you get priority boarding 'cause trying to get onto a train can be quite mental at times, 'cause it's very very busy"
+- P11 - Interested
+- P12 - Interested
+
+
+=============================================================================
+EASY TO NOTICE THE PREMIUM OPTIONS? (1-5 scale)
+=============================================================================
+
+Option 1: P1-5, P2-5, P3-5, P4-4 (took a while to find out what it means), P6-5, P8-5
+
+Option 2: P1-5, P4-5, P7-5, P9-5, P11-5, P12-5
+
+Option 3:
+- P2-3 "I didn't spot the, um, upper deck, lower deck thing to start with"
+- P5-5
+- P6-3
+- P7-5
+- P8-5
+- P9-1 "I can't see the premium zone anywhere, tell you the truth" (was looking on lower deck)
+- P11-5
+
+Option 4:
+- P2-4
+- P3-5
+- P4-5
+- P5-5
+- P6-4 (so many options) "when you're on the lower deck, um, seat map, there are no premium seats."
+- P7-5
+- P8-5
+
+Option 5:
+- P2-5 (very easy)
+- P3-3 "It was easy to see, but it didn't excite me in any way."
+- P4-5
+- P5-4
+- P10-4 "wasn't available on the lower deck"
+- P11-5
+- P12-5
+
+
+=============================================================================
+EASY TO UNDERSTAND WHAT THE PREMIUM OPTIONS OFFER? (1-5 scale)
+=============================================================================
+
+Option 1:
+- P1 - "I don't know what they offer." After searching and finally finding more info rated 5.
+- P2 - 5
+- P3 - 4. "little bit weird about the wifi. So I guess the WiFi's located at the front of the bus or something. That's a little weird."
+- P4 - 4. "I'm gonna give that a four because it doesn't explain how the premium, the 10 99 euro premium single differs too much from the premium, the 8 49 euro premium. What aspects make it more private?"
+- P6 - 5
+- P8 - 4
+
+Option 2:
+- P1 - 5 (after struggling for a while to understand and find info, marked as very easy)
+- P4 - 5
+- P7 - 5
+- P9 - 4
+- P11 - (not noted)
+- P12 - 5. "Well, the premium often option just offers you a seat, be it a single or a return." (didn't connect the premium zone he read about before with the seat)
+
+Option 3:
+- P2 - 3. "I don't think that was obvious (to click the legend to view more info), but obviously once found it and I thought that was"
+- P5 - 5
+- P6 - 4. When asked started looking for more info, went back to previous page, noticed the banner and clicked it. "comfort, privacy a little bit more personal space." "I just don't think it's attractive enough really, maybe for long journeys"
+- P7 - 5
+- P8 - 3
+- P9 - 5 (after finding the seat category panel by chance). "It's difficult because it doesn't tell you anything on this page that I can see what it offers." Then: "so now I've clicked on it, now it's making it much clearer."
+- P11 - 4. When asked, came back to the seatmap and found the seat panel by chance. "so I didn't realize you could click on it, but I thought we'd give it a go." "it wasn't obvious to me immediately that I could press on the actual seat"
+
+Option 4:
+- P2 - 5
+- P3 - 5
+- P4 - 5
+- P5 - 5. "I suppose I actually didn't click on this." (said when discovered seat category panel at end of test). "I'd love to see how that better." (about the wi-fi)
+- P6 - 4. "'cause the better wifi, I don't really understand, like I don't understand how that works."
+- P7 - clicked again to check which info he could get, couldn't find it; said it's because of the view
+- P8 - 5
+
+Option 5:
+- P2 - 5 (very easy)
+- P3 - 3
+- P4 - 4
+- P5 - 2. "there be a little short notes that would make it more easier to understand." Clicked it again to see the panel with info, but still said she wanted a "little short note"
+- P10 - 5. "that was kind of detailed enough for you to make an informed choice based on your individual needs."
+- P11 - 5
+- P12 - 5
+
+
+=============================================================================
+WHAT COULD MAKE IT EASIER TO UNDERSTAND?
+=============================================================================
+
+Option 1
+- P1 - knowing that you could click on something to get that information
+- P2 - a note on the actual premium icon saying that it's on the upper deck
+- P3 - maybe explain about the wifi, like how is the wifi better
+- P4 - "It would've been handy if it said click to view (seat category panel)." "I could understand how it's more premium, but you need to explain that"
+- P6 - "I don't think there's anything you could do to make it easy to understand"
+- P8 - "There's not much difference between them and the classic." (irrelevant insight - price is placeholder)
+
+Option 2
+- P1 - it needs to be made more prominent that there's something to click on (seat category panel)
+- P4 - didn't say anything
+- P7 - you have to click to see
+- P9 - "I wish just by defaulting that top section (on the search page) had a side by side, like the standard zone, the premium zone, like a visual representation of each on this main page." "I wish there was visual information so when you tap on number one here (seat on the seatmap) it would bring up a popup with like an image of that exact seat and what to expect."
+- P12 - "the upper and lower decking was a little bit confusing, so I think that maybe it would be easier to click on the priority or the premium seating and that would automatically maybe take the upper deck."
+
+Option 3
+- P2 - "clearer way of indicating what you get for the seat"
+- P5 - "I think it was absolutely fine."
+- P6 - "now that I've kind of seen that, I think it is, it is easy to understand." (struggled to find more info; once he found it was easier)
+- P7 - maybe a couple of more photos of premium
+- P8 - "I think listing out what is involved in the premium zone"
+- P9 - "there's nothing on there that makes me think that I click on it I'll find out more information." Also only noticed the upper deck by the end of the test.
+- P11 - "if there was an eye telling me there's more information on the premium seat, I would've pressed it"
+
+Option 4
+- P2 - "maybe do like a little popup, which says, don't forget we have premium options or something."
+- P3 - "I don't think you need to change anything 'cause you click into it and it clearly states what you're getting for the premium."
+- P4 - "I didn't immediately notice the upper deck. It was a bit hidden at first when I looked, I thought there weren't any premium seats available."
+- P5 - "At the moment I'm thinking, oh, you're gonna have better wifi when you're just one seat away." (wants to understand how this can happen) "Priority boarding doesn't really bother me"
+- P6 - mentions picture but not relevant for the test
+- P7 - "I suppose the only thing you could do is somewhere to have a written, a brief written explanation of what, what it is"
+- P8 - "there should be something that tells you what you get for each of those levels."
+
+Option 5
+- P2 - mentioned the picture, but not relevant for this test
+- P3 - "probably a breakdown of what's included"
+- P4 - discovered the panel by the end of the test by chance. "I didn't even notice some of this stuff when I, when I went through originally." "if the WiFi's not working as well at the back of the bus, that doesn't seem positive, it seems like an issue with the quality of the bus." "I'm a bit skeptical on some of those elements." "rather than clicking into them, you can have a key and it has a better wi-fi, better visibility and that kind of stuff should be on the key itself."
+- P5 - "clear description of exactly what is included."
+- P10 - says that clicking the legend should show more info about that particular seat you're clicking
+- P11 - "just have a little bit more clear information about"
+- P12 - "it's quite clear what the benefits are." "I would like to understand if that is kind of a quiet zone." (because she travels with kids)

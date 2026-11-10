@@ -1,0 +1,125 @@
+OPTION 3: USABILITY ASSESSMENT
+Test: 74addba8 | 7 participants (P2, P5, P6, P7, P8, P9, P11) | Unmoderated
+
+Option 3 distinctive features from transcripts: results page "New Premium Zone" banner, seat category
+key at the top of the seat map with tappable photo cards per category, seat types Classic / Front /
+Panorama / Premium.
+
+Note: The Figma node linked for this test (4642:56980) resolves to a Contact form in the production
+Checkout file, not a seat map frame. The prototype being tested was identified entirely from
+transcripts.
+
+No recording checks needed. One prototype rendering note was logged (P6, Task 5: "the page didn't kind
+of load below where that key was") and treated as an artefact. P6's data is kept.
+
+
+TASK 1: Trip comparison (results page)
+
+EASE: 4 of 7 mentioned Premium Zone on first impression.
+
+P5 read the banner immediately (initially confused by the term, then found the explanation). P7 was
+"immediately interested" before comparing prices. P9 read the banner benefits while reviewing trips. P11
+described the offer from the badge: "enjoy more comfortable journey, better wifi, that's included." P8,
+P6, and P2 focused on price, time, and directness and said nothing about Premium Zone unprompted.
+
+
+TASK 2: Seat selection (evaluative)
+
+DIFFICULTY: 6 of 7. The category key at the top of the seat map was not perceived as interactive.
+
+P7 was the only participant to tap a category card in Task 2 and see the photos: "I quite like the fact
+that I can now see the seat categories." P6 noticed the key existed but did not tap it. The remaining
+five navigated the seat map without engaging with the key at all. P11 discovered it in Task 6 and said
+"I didn't realize you could click on it."
+
+DIFFICULTY: 3 of 7. Premium Zone location on the seat map was hard to find.
+
+P2: "I can't see a premium one. Am I looking straight past it or something?" P9 looked at the lower deck
+and concluded "there's no premium seats on this." P7 (even in Task 1) asked "where's premium?" and
+guessed upper deck front.
+
+DIFFICULTY: 3 of 7. Paid seating model was questioned.
+
+P8: "Having booked a ticket, I am expected to get a seat. I don't have to pay for a seat." P2: "Seems a
+bit weird, already paid for a ticket." P6 expressed similar hesitation about value.
+
+
+TASK 3: Premium Zone comprehension (evaluative, core)
+
+Banner exposure reduced reliance on guesswork for 3 of 7. Participants who had read the results banner
+or found the category cards (P5, P7, P11) described the offer accurately. Those without prior access
+(P8, P6, P9) relied on assumptions: P8 expected "first class of the bus with leg room and power
+charging," P9 guessed "at the back where it's more spacious, probably a panoramic roof," P6 was unsure
+what a premium bus seat would even involve. P2 found the detail panel during this task while hunting for
+where Premium seats were located.
+
+
+TASK 4: Emotional reaction
+
+Interested: P5, P11, P7 (3 of 7).
+  P5: "definitely interested, premium wifi in this day and age."
+  P11: "I'd say interested, based on comfort and location."
+  P7: "I'm always interested in the bits that get you something nice."
+
+Sceptical: P8, P9 (2 of 7).
+  P8: "I feel sceptical because I don't understand what it entails, it just says premium seats, additional cost."
+  P9: "sceptical because you don't know where it's gonna be and what the actual features are."
+
+Confused: P6 (1 of 7).
+Indifferent: P2 (1 of 7).
+
+
+TASKS 5/6: Noticeability and understandability
+
+Noticeability (Task 5):
+Easy: P8, P5, P11, P7. P5 and P11 credited the results page banner directly.
+Mixed (3 out of 5): P6.
+Difficult: P2 (missed the upper/lower deck distinction), P9 ("I can't see the Premium Zone anywhere on
+this page").
+
+Understanding (Task 6):
+The category detail panel was discovered mid-task by multiple participants, and that moment shifted their
+assessment sharply.
+
+P9: "I've clicked on the seat now... okay so now it's making it much clearer. If I could go back I would
+change my previous answer to very easy."
+P11: "I didn't realize you could click on it, but I thought I'd give it a go. Some more privacy, more
+comfortable seats, better wifi, priority boarding. I think that's an absolute given."
+P6: "I didn't see this... [after clicking] now that I've kind of seen that, I think it is easy to
+understand."
+
+Rated easy or improved to easy: P5, P7, P6, P9 (after finding the cards).
+Mixed: P11 (gave 4/5 because the tapping wasn't obvious), P2 (gave 3/5).
+Difficult throughout: P8. The only participant who never found the detail panel. "Not very easy, just cost."
+
+
+TASK 7: What could make it easier
+
+Six of seven participants converged on one theme: make it clear the category cards are tappable.
+
+P11: "If there was an information logo next to the premium, I probably would've pressed it. Based on
+looking at the pictures, 100% I would've chosen the premium zone seats."
+P9: "You need to have something on each of those options to make it clearer that you need to click on it
+to go to a different screen."
+P2: "More of a tooltip style, a clearer way of indicating that you can see what you get for each seat."
+P11 (reinforcing): "If there was a little 'i' next to the seat logo, I definitely would've clicked on it."
+
+The unanimous signal: the content once revealed is persuasive. The affordance to reveal it is invisible.
+
+
+CONCLUSION
+
+  Mentioned Premium Zone during trip comparison:
+  4 of 7. P5, P7, P9, and P11 (all via the results page banner).
+
+  Discovered they could see more details about each seat category:
+  1 of 7 found it spontaneously in Task 2 (P7). Five more found it across Tasks 3 to 6. One never
+  found it (P8).
+
+  Understood Premium Zone as more than just a seat category:
+  6 of 7 (once the detail panel was found). P8 only ever saw the price add-on.
+
+  Most present emotion:
+  Interested (3 of 7).
+
+The concept is legible and appealing once found. The path to finding it is invisible to most participants.
