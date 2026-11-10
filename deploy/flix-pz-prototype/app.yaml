@@ -16,3 +16,5 @@ spec:
       - Flix Team AAD
       name: viewer
   runtime: generic
+  secrets:
+  - NPM_TOKEN
